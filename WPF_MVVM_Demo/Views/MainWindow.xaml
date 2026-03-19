@@ -1,0 +1,80 @@
+﻿<Window x:Class="WPF_MVVM_Demo.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPF_MVVM_Demo.ViewModels"
+        xmlns:views="clr-namespace:WPF_MVVM_Demo.Views"
+        Title="Демонстрация привязок WPF" 
+        Height="800" 
+        Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundGradient}">
+
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок с градиентом -->
+        <Border Grid.Row="0"
+                Background="{StaticResource PanelBrush}"
+                CornerRadius="8"
+                Padding="20"
+                Margin="0,0,0,15">
+            <StackPanel>
+                <TextBlock Text="Лабораторная работа №1: Виды привязок в WPF" 
+                          FontSize="24" 
+                          FontWeight="Bold" 
+                          Foreground="{StaticResource AccentBrush}"
+                          HorizontalAlignment="Center"/>
+                <TextBlock Text="Демонстрация различных типов привязок и триггеров"
+                          FontSize="14"
+                          Foreground="{StaticResource TextBrush}"
+                          HorizontalAlignment="Center"
+                          Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- TabControl -->
+        <TabControl Grid.Row="1" 
+                    SelectedItem="{Binding SelectedViewModel}"
+                    Background="Transparent"
+                    BorderThickness="0">
+
+            <TabItem Header="Привязка по умолчанию">
+                <Border Style="{StaticResource ContentBorderStyle}">
+                    <views:DefaultBindingView DataContext="{Binding DefaultBindingVM}"/>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Двухсторонняя привязка">
+                <Border Style="{StaticResource ContentBorderStyle}">
+                    <views:TwoWayBindingView DataContext="{Binding TwoWayBindingVM}"/>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Одноразовая привязка">
+                <Border Style="{StaticResource ContentBorderStyle}">
+                    <views:OneTimeBindingView DataContext="{Binding OneTimeBindingVM}"/>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Односторонние привязки">
+                <Border Style="{StaticResource ContentBorderStyle}">
+                    <views:OneWayBindingView DataContext="{Binding OneWayBindingVM}"/>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Триггеры">
+                <Border Style="{StaticResource ContentBorderStyle}">
+                    <views:TriggersView DataContext="{Binding TriggersVM}"/>
+                </Border>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

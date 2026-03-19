@@ -1,0 +1,330 @@
+﻿<UserControl x:Class="WPF_MVVM_Demo.Views.OneWayBindingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="Transparent">
+
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="DemoInnerBorder">
+            <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="DescriptionStyle">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="ValueDisplayStyle">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+        </Style>
+
+        <Style x:Key="DirectionArrowStyle" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="15,5"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style x:Key="OneWayButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  Background="Transparent">
+        <StackPanel Margin="5">
+            <TextBlock Text="Односторонние привязки (OneWay)" 
+                       Style="{StaticResource SectionHeaderStyle}"
+                       Foreground="{StaticResource AccentBrush}"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- OneWay от источника к цели -->
+                <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
+                    <StackPanel>
+                        <TextBlock Text="OneWay (ViewModel → UI)" 
+                                   Style="{StaticResource SubHeaderStyle}"
+                                   Foreground="{StaticResource SuccessBrush}"/>
+
+                        <Border Style="{StaticResource DirectionArrowStyle}"
+                                Background="{StaticResource SuccessBrush}">
+                            <TextBlock Text="⬇️ Поток данных: источник → цель" 
+                                      Foreground="White"
+                                      FontWeight="Bold"
+                                      HorizontalAlignment="Center"/>
+                        </Border>
+
+                        <Border Background="{StaticResource PanelBrush}"
+                                Padding="20"
+                                CornerRadius="5"
+                                Margin="0,10">
+                            <StackPanel>
+                                <TextBlock Text="🔢 Счетчик в ViewModel:" 
+                                          Foreground="{StaticResource TextBrush}"
+                                          FontWeight="Bold"
+                                          HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Counter}" 
+                                           Style="{StaticResource ValueDisplayStyle}"
+                                           Foreground="{StaticResource SuccessBrush}"
+                                           FontSize="36"
+                                           HorizontalAlignment="Center"
+                                           Margin="10"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Button Content="➕ Увеличить счетчик" 
+                                Style="{StaticResource OneWayButtonStyle}"
+                                Background="{StaticResource SuccessBrush}"
+                                Click="IncrementButton_Click" 
+                                Margin="0,5" 
+                                Padding="15,8"/>
+
+                        <Border Background="{StaticResource PanelBrush}"
+                                Padding="10"
+                                CornerRadius="5"
+                                Margin="0,10">
+                            <StackPanel>
+                                <TextBlock Text="📝 Текст только для чтения:" 
+                                          Foreground="{StaticResource TextBrush}"
+                                          FontWeight="Bold"/>
+                                <TextBox Text="{Binding ReadOnlyText, Mode=OneWay}" 
+                                         IsReadOnly="True" 
+                                         Background="{StaticResource PanelLightBrush}"
+                                         Foreground="{StaticResource SuccessBrush}"
+                                         Margin="0,5"
+                                         Padding="8"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="{StaticResource PanelBrush}" 
+                                Padding="10" 
+                                Margin="0,5"
+                                CornerRadius="5">
+                            <TextBlock Text="✅ Изменения в ViewModel обновляют интерфейс, но не наоборот" 
+                                      Style="{StaticResource DescriptionStyle}"
+                                      Foreground="{StaticResource SuccessBrush}"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <!-- OneWayToSource -->
+                <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
+                    <StackPanel>
+                        <TextBlock Text="OneWayToSource (UI → ViewModel)" 
+                                   Style="{StaticResource SubHeaderStyle}"
+                                   Foreground="{StaticResource DangerBrush}"/>
+
+                        <Border Style="{StaticResource DirectionArrowStyle}"
+                                Background="{StaticResource DangerBrush}">
+                            <TextBlock Text="⬆️ Поток данных: цель → источник" 
+                                      Foreground="White"
+                                      FontWeight="Bold"
+                                      HorizontalAlignment="Center"/>
+                        </Border>
+
+                        <Border Background="{StaticResource PanelBrush}"
+                                Padding="15"
+                                CornerRadius="5"
+                                Margin="0,10">
+                            <StackPanel>
+                                <TextBlock Text="✏️ Введи текст (обновляет ViewModel):" 
+                                          Foreground="{StaticResource TextBrush}"
+                                          FontWeight="Bold"/>
+                                <TextBox Text="{Binding ReadOnlyText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
+                                         Margin="0,5"
+                                         Padding="8"
+                                         Background="{StaticResource PanelLightBrush}"
+                                         Foreground="{StaticResource TextBrush}"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="{StaticResource PanelBrush}"
+                                Padding="15"
+                                CornerRadius="5"
+                                Margin="0,5">
+                            <StackPanel>
+                                <TextBlock Text="📊 Текущее значение в ViewModel:" 
+                                          Foreground="{StaticResource TextBrush}"
+                                          FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ReadOnlyText}" 
+                                           Style="{StaticResource ValueDisplayStyle}"
+                                           Foreground="{StaticResource DangerBrush}"
+                                           FontSize="20"
+                                           HorizontalAlignment="Center"
+                                           Margin="5"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="{StaticResource PanelBrush}" 
+                                Padding="10" 
+                                Margin="0,5"
+                                CornerRadius="5">
+                            <TextBlock Text="⚠️ Изменения в интерфейсе обновляют ViewModel, но изменения в ViewModel НЕ обновляют интерфейс" 
+                                      Style="{StaticResource DescriptionStyle}"
+                                      Foreground="{StaticResource DangerBrush}"
+                                      TextWrapping="Wrap"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Margin="0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Данные Person с OneWay -->
+                <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
+                    <StackPanel>
+                        <TextBlock Text="👤 Данные Person (OneWay)" 
+                                   Style="{StaticResource SubHeaderStyle}"
+                                   Foreground="{StaticResource SuccessBrush}"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Person.FirstName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Фамилия:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Person.LastName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Возраст:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Person.Age}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Полное имя:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Person.FullName}" Margin="10,5" Foreground="{StaticResource AccentLightBrush}" FontWeight="Bold"/>
+                        </Grid>
+
+                        <TextBlock Text="* Обновляется при изменении в ViewModel" 
+                                   Style="{StaticResource DescriptionStyle}"
+                                   Margin="0,5"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Кнопки для изменения Person -->
+                <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}" 
+                        Background="{StaticResource PanelBrush}">
+                    <StackPanel>
+                        <TextBlock Text="🎮 Управление Person в ViewModel" 
+                                   Style="{StaticResource SubHeaderStyle}"
+                                   Foreground="{StaticResource WarningBrush}"/>
+
+                        <Button Content="🔄 Изменить имя на 'Новое имя'" 
+                                Style="{StaticResource OneWayButtonStyle}"
+                                Background="{StaticResource WarningBrush}"
+                                Click="ChangeFirstNameButton_Click" 
+                                Margin="0,5" 
+                                Padding="15,8"/>
+
+                        <Button Content="⬆️ Увеличить возраст" 
+                                Style="{StaticResource OneWayButtonStyle}"
+                                Background="{StaticResource DangerBrush}"
+                                Click="IncreaseAgeButton_Click" 
+                                Margin="0,5" 
+                                Padding="15,8"/>
+
+                        <Border Background="{StaticResource PanelLightBrush}" 
+                                Padding="10" 
+                                Margin="0,10"
+                                CornerRadius="5">
+                            <StackPanel>
+                                <TextBlock Text="📋 Результат:" 
+                                          FontWeight="Bold"
+                                          Foreground="{StaticResource TextBrush}"/>
+                                <TextBlock Text="• Изменения отобразятся в левой колонке" 
+                                          Style="{StaticResource DescriptionStyle}"/>
+                                <TextBlock Text="• OneWay привязка автоматически обновит UI" 
+                                          Style="{StaticResource DescriptionStyle}"/>
+                                <TextBlock Text="• UI не может напрямую изменить эти значения" 
+                                          Style="{StaticResource DescriptionStyle}"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Background="{StaticResource PanelBrush}" 
+                    Padding="20" 
+                    Margin="5,10"
+                    CornerRadius="8"
+                    BorderBrush="{StaticResource AccentBrush}"
+                    BorderThickness="2">
+                <StackPanel>
+                    <TextBlock Text="📖 Описание односторонних привязок" 
+                              FontSize="16" 
+                              FontWeight="Bold"
+                              Foreground="{StaticResource AccentBrush}"
+                              Margin="0,0,0,10"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0" Margin="5">
+                            <TextBlock Text="✅ OneWay (ViewModel → UI)" 
+                                      FontWeight="Bold"
+                                      Foreground="{StaticResource SuccessBrush}"/>
+                            <TextBlock Text="• Данные текут только от источника к цели" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                            <TextBlock Text="• Изменения в ViewModel обновляют UI" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                            <TextBlock Text="• Изменения в UI не влияют на ViewModel" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                            <TextBlock Text="• Идеально для отображения данных" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Margin="5">
+                            <TextBlock Text="⚠️ OneWayToSource (UI → ViewModel)" 
+                                      FontWeight="Bold"
+                                      Foreground="{StaticResource DangerBrush}"/>
+                            <TextBlock Text="• Данные текут от цели к источнику" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                            <TextBlock Text="• Изменения в UI обновляют ViewModel" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                            <TextBlock Text="• Изменения в ViewModel не видны в UI" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                            <TextBlock Text="• Полезно для сбора данных" 
+                                      Style="{StaticResource DescriptionStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
