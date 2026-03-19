@@ -1,31 +1,20 @@
-﻿using WPF_MVVM_Demo.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
+using WPF_MVVM_Demo.Models;
 
 namespace WPF_MVVM_Demo.ViewModels
 {
-    public class OneTimeBindingViewModel : ViewModelBase
+    public partial class OneTimeBindingViewModel : ObservableObject
     {
+        [ObservableProperty]
         private Person _person;
+
+        [ObservableProperty]
         private DateTime _currentTime;
+
+        [ObservableProperty]
         private string _staticText;
-
-        public Person Person
-        {
-            get => _person;
-            set => SetProperty(ref _person, value);
-        }
-
-        public DateTime CurrentTime
-        {
-            get => _currentTime;
-            set => SetProperty(ref _currentTime, value);
-        }
-
-        public string StaticText
-        {
-            get => _staticText;
-            set => SetProperty(ref _staticText, value);
-        }
 
         public OneTimeBindingViewModel()
         {
@@ -42,10 +31,17 @@ namespace WPF_MVVM_Demo.ViewModels
             StaticText = "Этот текст не изменится при обновлении";
         }
 
-        public void UpdateTime()
+        [RelayCommand]
+        private void UpdateTime()
         {
             CurrentTime = DateTime.Now;
-            OnPropertyChanged(nameof(CurrentTime));
+        }
+
+        [RelayCommand]
+        private void UpdatePersonName(string newName)
+        {
+            Person.FirstName = newName;
+            OnPropertyChanged(nameof(Person));
         }
     }
 }
