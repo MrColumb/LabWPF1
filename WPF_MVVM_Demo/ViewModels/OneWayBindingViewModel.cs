@@ -1,31 +1,19 @@
-﻿using WPF_MVVM_Demo.Models;
-using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using WPF_MVVM_Demo.Models;
 
 namespace WPF_MVVM_Demo.ViewModels
 {
-    public class OneWayBindingViewModel : ViewModelBase
+    public partial class OneWayBindingViewModel : ObservableObject
     {
+        [ObservableProperty]
         private Person _person;
+
+        [ObservableProperty]
         private string _readOnlyText;
+
+        [ObservableProperty]
         private int _counter;
-
-        public Person Person
-        {
-            get => _person;
-            set => SetProperty(ref _person, value);
-        }
-
-        public string ReadOnlyText
-        {
-            get => _readOnlyText;
-            set => SetProperty(ref _readOnlyText, value);
-        }
-
-        public int Counter
-        {
-            get => _counter;
-            set => SetProperty(ref _counter, value);
-        }
 
         public OneWayBindingViewModel()
         {
@@ -42,9 +30,35 @@ namespace WPF_MVVM_Demo.ViewModels
             Counter = 0;
         }
 
-        public void IncrementCounter()
+        [RelayCommand]
+        private void IncrementCounter()
         {
             Counter++;
+        }
+
+        [RelayCommand]
+        private void DecrementCounter()
+        {
+            Counter--;
+        }
+
+        [RelayCommand]
+        private void UpdatePerson(string parameter)
+        {
+            switch (parameter)
+            {
+                case "name":
+                    Person.FirstName = "Новое имя";
+                    break;
+                case "age":
+                    Person.Age++;
+                    break;
+                default:
+                    Person.FirstName = "Обновленное имя";
+                    Person.Age++;
+                    break;
+            }
+            OnPropertyChanged(nameof(Person));
         }
     }
 }

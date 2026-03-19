@@ -1,30 +1,19 @@
-﻿using WPF_MVVM_Demo.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using WPF_MVVM_Demo.Models;
 
 namespace WPF_MVVM_Demo.ViewModels
 {
-    public class DefaultBindingViewModel : ViewModelBase
+    public partial class DefaultBindingViewModel : ObservableObject  // Убираем наследование от ViewModelBase
     {
+        [ObservableProperty]  // Авто-свойство
         private Person _person;
+
+        [ObservableProperty]
         private string _directText;
+
+        [ObservableProperty]
         private string _vmText;
-
-        public Person Person
-        {
-            get => _person;
-            set => SetProperty(ref _person, value);
-        }
-
-        public string DirectText
-        {
-            get => _directText;
-            set => SetProperty(ref _directText, value);
-        }
-
-        public string VMText
-        {
-            get => _vmText;
-            set => SetProperty(ref _vmText, value);
-        }
 
         public DefaultBindingViewModel()
         {
@@ -38,7 +27,7 @@ namespace WPF_MVVM_Demo.ViewModels
             };
 
             DirectText = "Текст из интерфейса";
-            VMText = "Текст из ViewModel";
+            VmText = "Текст из ViewModel";
         }
     }
 }
