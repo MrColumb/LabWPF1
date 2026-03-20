@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- MainWindow -->
+	<data name="MainWindow_Title" xml:space="preserve">
+    <value>Laboratory Work No. 1: WPF Binding Types</value>
+  </data>
+	<data name="MainWindow_Subtitle" xml:space="preserve">
+    <value>Demonstration of various binding types and triggers</value>
+  </data>
+
+	<!-- Tab Headers -->
+	<data name="Tab_DefaultBinding" xml:space="preserve">
+    <value>Default Binding</value>
+  </data>
+	<data name="Tab_TwoWayBinding" xml:space="preserve">
+    <value>Two-Way Binding</value>
+  </data>
+	<data name="Tab_OneTimeBinding" xml:space="preserve">
+    <value>One-Time Binding</value>
+  </data>
+	<data name="Tab_OneWayBinding" xml:space="preserve">
+    <value>One-Way Bindings</value>
+  </data>
+	<data name="Tab_Triggers" xml:space="preserve">
+    <value>Triggers</value>
+  </data>
+
+	<!-- Language Selection -->
+	<data name="Language_Select" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+	<data name="Language_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+	<data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+
+	<!-- DefaultBindingView -->
+	<data name="DefaultBinding_Title" xml:space="preserve">
+    <value>Default Binding</value>
+  </data>
+	<data name="DefaultBinding_DirectBindingTitle" xml:space="preserve">
+    <value>Direct Binding to UI Elements</value>
+  </data>
+	<data name="DefaultBinding_TextBoxLabel" xml:space="preserve">
+    <value>Text Box:</value>
+  </data>
+	<data name="DefaultBinding_TextBoxPlaceholder" xml:space="preserve">
+    <value>Enter text</value>
+  </data>
+	<data name="DefaultBinding_TextFromTextBox" xml:space="preserve">
+    <value>Text from TextBox:</value>
+  </data>
+	<data name="DefaultBinding_DirectBindingDesc" xml:space="preserve">
+    <value>When you change text in the upper field, the lower one updates automatically</value>
+  </data>
+	<data name="DefaultBinding_ViewModelBindingTitle" xml:space="preserve">
+    <value>Binding through ViewModel</value>
+  </data>
+	<data name="DefaultBinding_FirstName" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+	<data name="DefaultBinding_LastName" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+	<data name="DefaultBinding_Age" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+	<data name="DefaultBinding_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+	<data name="DefaultBinding_IsStudent" xml:space="preserve">
+    <value>Student</value>
+  </data>
+	<data name="DefaultBinding_FullName" xml:space="preserve">
+    <value>Full Name:</value>
+  </data>
+	<data name="DefaultBinding_FullNameDesc" xml:space="preserve">
+    <value>* Updates automatically when first or last name changes</value>
+  </data>
+	<data name="DefaultBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 Default Binding Description</value>
+  </data>
+	<data name="DefaultBinding_DescriptionText" xml:space="preserve">
+    <value>Default binding automatically selects the mode depending on the situation:</value>
+  </data>
+	<data name="DefaultBinding_ReadOnlyProps" xml:space="preserve">
+    <value>✅ For read-only properties:</value>
+  </data>
+	<data name="DefaultBinding_TextBlockText" xml:space="preserve">
+    <value>• TextBlock.Text</value>
+  </data>
+	<data name="DefaultBinding_LabelContent" xml:space="preserve">
+    <value>• Label.Content</value>
+  </data>
+	<data name="DefaultBinding_OneWayMode" xml:space="preserve">
+    <value>• Uses OneWay</value>
+  </data>
+	<data name="DefaultBinding_EditableProps" xml:space="preserve">
+    <value>🔄 For editable properties:</value>
+  </data>
+	<data name="DefaultBinding_TextBoxText" xml:space="preserve">
+    <value>• TextBox.Text</value>
+  </data>
+	<data name="DefaultBinding_CheckBoxIsChecked" xml:space="preserve">
+    <value>• CheckBox.IsChecked</value>
+  </data>
+	<data name="DefaultBinding_TwoWayMode" xml:space="preserve">
+    <value>• Uses TwoWay</value>
+  </data>
+
+	<!-- TwoWayBindingView -->
+	<data name="TwoWayBinding_Title" xml:space="preserve">
+    <value>Two-Way Binding</value>
+  </data>
+	<data name="TwoWayBinding_TextBoxExample" xml:space="preserve">
+    <value>TextBox Example (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_EnterText" xml:space="preserve">
+    <value>Enter text:</value>
+  </data>
+	<data name="TwoWayBinding_TextFromViewModel" xml:space="preserve">
+    <value>Text from ViewModel:</value>
+  </data>
+	<data name="TwoWayBinding_TextLength" xml:space="preserve">
+    <value>Text length:</value>
+  </data>
+	<data name="TwoWayBinding_SyncDesc" xml:space="preserve">
+    <value>Changes are synchronized in both directions</value>
+  </data>
+	<data name="TwoWayBinding_CheckBoxExample" xml:space="preserve">
+    <value>CheckBox Example (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+	<data name="TwoWayBinding_StateInViewModel" xml:space="preserve">
+    <value>State in ViewModel:</value>
+  </data>
+	<data name="TwoWayBinding_StateDesc" xml:space="preserve">
+    <value>True - enabled, False - disabled</value>
+  </data>
+	<data name="TwoWayBinding_CheckBoxDesc" xml:space="preserve">
+    <value>When CheckBox changes, the value in ViewModel updates and vice versa</value>
+  </data>
+	<data name="TwoWayBinding_EditPerson" xml:space="preserve">
+    <value>Editing Person (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_FirstName" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+	<data name="TwoWayBinding_LastName" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+	<data name="TwoWayBinding_Age" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+	<data name="TwoWayBinding_IsStudent" xml:space="preserve">
+    <value>Student</value>
+  </data>
+	<data name="TwoWayBinding_CurrentValues" xml:space="preserve">
+    <value>Current Person Values:</value>
+  </data>
+	<data name="TwoWayBinding_RealTimeUpdate" xml:space="preserve">
+    <value>* Updates in real time</value>
+  </data>
+	<data name="TwoWayBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 Two-Way Binding Description</value>
+  </data>
+	<data name="TwoWayBinding_DescriptionText" xml:space="preserve">
+    <value>Two-way binding synchronizes data in both directions:</value>
+  </data>
+	<data name="TwoWayBinding_UIToViewModel" xml:space="preserve">
+    <value>⬇️ UI → ViewModel</value>
+  </data>
+	<data name="TwoWayBinding_UIChange1" xml:space="preserve">
+    <value>• Changes in text field</value>
+  </data>
+	<data name="TwoWayBinding_UIChange2" xml:space="preserve">
+    <value>• CheckBox toggling</value>
+  </data>
+	<data name="TwoWayBinding_UIChange3" xml:space="preserve">
+    <value>• ComboBox selection</value>
+  </data>
+	<data name="TwoWayBinding_UIChange4" xml:space="preserve">
+    <value>• Data is passed to the model</value>
+  </data>
+	<data name="TwoWayBinding_ViewModelToUI" xml:space="preserve">
+    <value>⬆️ ViewModel → UI</value>
+  </data>
+	<data name="TwoWayBinding_VMChange1" xml:space="preserve">
+    <value>• Data updates in code</value>
+  </data>
+	<data name="TwoWayBinding_VMChange2" xml:space="preserve">
+    <value>• Loading new values</value>
+  </data>
+	<data name="TwoWayBinding_VMChange3" xml:space="preserve">
+    <value>• State changes</value>
+  </data>
+	<data name="TwoWayBinding_VMChange4" xml:space="preserve">
+    <value>• UI updates</value>
+  </data>
+	<data name="TwoWayBinding_Advantages" xml:space="preserve">
+    <value>✅ Advantages:</value>
+  </data>
+	<data name="TwoWayBinding_Adv1" xml:space="preserve">
+    <value>• Automatic synchronization</value>
+  </data>
+	<data name="TwoWayBinding_Adv2" xml:space="preserve">
+    <value>• No need to write update code</value>
+  </data>
+	<data name="TwoWayBinding_Adv3" xml:space="preserve">
+    <value>• Data is always up to date</value>
+  </data>
+	<data name="TwoWayBinding_Features" xml:space="preserve">
+    <value>⚠️ Features:</value>
+  </data>
+	<data name="TwoWayBinding_Feat1" xml:space="preserve">
+    <value>• UpdateSourceTrigger affects update timing</value>
+  </data>
+	<data name="TwoWayBinding_Feat2" xml:space="preserve">
+    <value>• Can be disabled for optimization</value>
+  </data>
+	<data name="TwoWayBinding_Feat3" xml:space="preserve">
+    <value>• Requires INotifyPropertyChanged</value>
+  </data>
+
+	<!-- OneTimeBindingView -->
+	<data name="OneTimeBinding_Title" xml:space="preserve">
+    <value>One-Time Binding</value>
+  </data>
+	<data name="OneTimeBinding_OneTimeDemo" xml:space="preserve">
+    <value>OneTime Binding (Frozen Data)</value>
+  </data>
+	<data name="OneTimeBinding_CurrentTimeOneTime" xml:space="preserve">
+    <value>⏰ Current Time (OneTime):</value>
+  </data>
+	<data name="OneTimeBinding_ValueNotChange" xml:space="preserve">
+    <value>* This value will NOT change</value>
+  </data>
+	<data name="OneTimeBinding_StaticTextOneTime" xml:space="preserve">
+    <value>📝 Static Text (OneTime):</value>
+  </data>
+	<data name="OneTimeBinding_UpdateTimeButton" xml:space="preserve">
+    <value>🔄 Update Time in ViewModel</value>
+  </data>
+	<data name="OneTimeBinding_Important" xml:space="preserve">
+    <value>💡 Important:</value>
+  </data>
+	<data name="OneTimeBinding_Important1" xml:space="preserve">
+    <value>• When clicking the button, time in ViewModel updates</value>
+  </data>
+	<data name="OneTimeBinding_Important2" xml:space="preserve">
+    <value>• OneTime binding does NOT respond to changes</value>
+  </data>
+	<data name="OneTimeBinding_Important3" xml:space="preserve">
+    <value>• Value remains 'frozen'</value>
+  </data>
+	<data name="OneTimeBinding_ComparisonTitle" xml:space="preserve">
+    <value>OneWay Binding (for comparison)</value>
+  </data>
+	<data name="OneTimeBinding_CurrentTimeOneWay" xml:space="preserve">
+    <value>⏰ Current Time (OneWay):</value>
+  </data>
+	<data name="OneTimeBinding_ValueUpdates" xml:space="preserve">
+    <value>* This value UPDATES</value>
+  </data>
+	<data name="OneTimeBinding_StaticTextOneWay" xml:space="preserve">
+    <value>📝 Static Text (OneWay):</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeatures" xml:space="preserve">
+    <value>✅ OneWay Features:</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeat1" xml:space="preserve">
+    <value>• Tracks changes in ViewModel</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeat2" xml:space="preserve">
+    <value>• Updates automatically</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeat3" xml:space="preserve">
+    <value>• Dynamic display</value>
+  </data>
+	<data name="OneTimeBinding_PersonDataOneTime" xml:space="preserve">
+    <value>👤 Person Data (OneTime)</value>
+  </data>
+	<data name="OneTimeBinding_FirstName" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+	<data name="OneTimeBinding_LastName" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+	<data name="OneTimeBinding_Age" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+	<data name="OneTimeBinding_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+	<data name="OneTimeBinding_WarningText" xml:space="preserve">
+    <value>⚠️ These values will NOT change when data updates</value>
+  </data>
+	<data name="OneTimeBinding_EditViewModel" xml:space="preserve">
+    <value>✏️ Changing Data in ViewModel</value>
+  </data>
+	<data name="OneTimeBinding_NewNameLabel" xml:space="preserve">
+    <value>New Name:</value>
+  </data>
+	<data name="OneTimeBinding_NewNamePlaceholder" xml:space="preserve">
+    <value>New name</value>
+  </data>
+	<data name="OneTimeBinding_ChangeNameButton" xml:space="preserve">
+    <value>🔄 Change Name in Person</value>
+  </data>
+	<data name="OneTimeBinding_Result" xml:space="preserve">
+    <value>📋 Result:</value>
+  </data>
+	<data name="OneTimeBinding_Result1" xml:space="preserve">
+    <value>• In left column (OneTime) the name will NOT change</value>
+  </data>
+	<data name="OneTimeBinding_Result2" xml:space="preserve">
+    <value>• Data in ViewModel updated, but display is frozen</value>
+  </data>
+	<data name="OneTimeBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 One-Time Binding Description</value>
+  </data>
+	<data name="OneTimeBinding_DescriptionText" xml:space="preserve">
+    <value>One-time binding sets the value once when the binding is created and does not track subsequent changes. This is efficient for static data or when you need to show a 'snapshot' of data at load time.</value>
+  </data>
+	<data name="OneTimeBinding_Advantages" xml:space="preserve">
+    <value>✅ Advantages:</value>
+  </data>
+	<data name="OneTimeBinding_Adv1" xml:space="preserve">
+    <value>• Minimal overhead</value>
+  </data>
+	<data name="OneTimeBinding_Adv2" xml:space="preserve">
+    <value>• Does not track changes</value>
+  </data>
+	<data name="OneTimeBinding_Adv3" xml:space="preserve">
+    <value>• Fast loading</value>
+  </data>
+	<data name="OneTimeBinding_Disadvantages" xml:space="preserve">
+    <value>⚠️ Disadvantages:</value>
+  </data>
+	<data name="OneTimeBinding_Disadv1" xml:space="preserve">
+    <value>• Does not update</value>
+  </data>
+	<data name="OneTimeBinding_Disadv2" xml:space="preserve">
+    <value>• Only initial value</value>
+  </data>
+	<data name="OneTimeBinding_Disadv3" xml:space="preserve">
+    <value>• Not suitable for dynamic data</value>
+  </data>
+
+	<!-- OneWayBindingView -->
+	<data name="OneWayBinding_Title" xml:space="preserve">
+    <value>One-Way Bindings</value>
+  </data>
+	<data name="OneWayBinding_OneWayTitle" xml:space="preserve">
+    <value>OneWay (ViewModel → UI)</value>
+  </data>
+	<data name="OneWayBinding_DataFlowDesc" xml:space="preserve">
+    <value>⬇️ Data flow: source → target</value>
+  </data>
+	<data name="OneWayBinding_CounterLabel" xml:space="preserve">
+    <value>🔢 Counter in ViewModel:</value>
+  </data>
+	<data name="OneWayBinding_IncrementButton" xml:space="preserve">
+    <value>➕ Increment Counter</value>
+  </data>
+	<data name="OneWayBinding_ReadOnlyText" xml:space="preserve">
+    <value>📝 Read-only Text:</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc" xml:space="preserve">
+    <value>✅ Changes in ViewModel update the UI, but not vice versa</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceTitle" xml:space="preserve">
+    <value>OneWayToSource (UI → ViewModel)</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceFlow" xml:space="preserve">
+    <value>⬆️ Data flow: target → source</value>
+  </data>
+	<data name="OneWayBinding_EnterTextLabel" xml:space="preserve">
+    <value>✏️ Enter text (updates ViewModel):</value>
+  </data>
+	<data name="OneWayBinding_CurrentValueLabel" xml:space="preserve">
+    <value>📊 Current value in ViewModel:</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc" xml:space="preserve">
+    <value>⚠️ Changes in UI update ViewModel, but changes in ViewModel do NOT update UI</value>
+  </data>
+	<data name="OneWayBinding_PersonDataTitle" xml:space="preserve">
+    <value>👤 Person Data (OneWay)</value>
+  </data>
+	<data name="OneWayBinding_FirstName" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+	<data name="OneWayBinding_LastName" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+	<data name="OneWayBinding_Age" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+	<data name="OneWayBinding_FullName" xml:space="preserve">
+    <value>Full Name:</value>
+  </data>
+	<data name="OneWayBinding_PersonUpdateDesc" xml:space="preserve">
+    <value>* Updates when changed in ViewModel</value>
+  </data>
+	<data name="OneWayBinding_ControlPersonTitle" xml:space="preserve">
+    <value>🎮 Controlling Person in ViewModel</value>
+  </data>
+	<data name="OneWayBinding_ChangeNameButton" xml:space="preserve">
+    <value>🔄 Change name to 'New Name'</value>
+  </data>
+	<data name="OneWayBinding_IncreaseAgeButton" xml:space="preserve">
+    <value>⬆️ Increase Age</value>
+  </data>
+	<data name="OneWayBinding_Result" xml:space="preserve">
+    <value>📋 Result:</value>
+  </data>
+	<data name="OneWayBinding_Result1" xml:space="preserve">
+    <value>• Changes will appear in the left column</value>
+  </data>
+	<data name="OneWayBinding_Result2" xml:space="preserve">
+    <value>• OneWay binding will automatically update UI</value>
+  </data>
+	<data name="OneWayBinding_Result3" xml:space="preserve">
+    <value>• UI cannot directly change these values</value>
+  </data>
+	<data name="OneWayBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 One-Way Bindings Description</value>
+  </data>
+	<data name="OneWayBinding_OneWayDescTitle" xml:space="preserve">
+    <value>✅ OneWay (ViewModel → UI)</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc1" xml:space="preserve">
+    <value>• Data flows only from source to target</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc2" xml:space="preserve">
+    <value>• Changes in ViewModel update UI</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc3" xml:space="preserve">
+    <value>• Changes in UI do not affect ViewModel</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc4" xml:space="preserve">
+    <value>• Ideal for displaying data</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDescTitle" xml:space="preserve">
+    <value>⚠️ OneWayToSource (UI → ViewModel)</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc1" xml:space="preserve">
+    <value>• Data flows from target to source</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc2" xml:space="preserve">
+    <value>• Changes in UI update ViewModel</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc3" xml:space="preserve">
+    <value>• Changes in ViewModel are not visible in UI</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc4" xml:space="preserve">
+    <value>• Useful for data collection</value>
+  </data>
+
+	<!-- TriggersView -->
+	<data name="Triggers_Title" xml:space="preserve">
+    <value>Triggers in WPF</value>
+  </data>
+	<data name="Triggers_PropertyTriggers" xml:space="preserve">
+    <value>Property Triggers</value>
+  </data>
+	<data name="Triggers_PropertyTriggersDesc" xml:space="preserve">
+    <value>Property triggers respond to changes in element properties</value>
+  </data>
+	<data name="Triggers_HoverButton" xml:space="preserve">
+    <value>Hover Mouse</value>
+  </data>
+	<data name="Triggers_PressButton" xml:space="preserve">
+    <value>Press Me</value>
+  </data>
+	<data name="Triggers_PropertyTriggerResult" xml:space="preserve">
+    <value>Changes on hover and press</value>
+  </data>
+	<data name="Triggers_DataTriggers" xml:space="preserve">
+    <value>Data Triggers</value>
+  </data>
+	<data name="Triggers_DataTriggersDesc" xml:space="preserve">
+    <value>Data triggers respond to changes in data</value>
+  </data>
+	<data name="Triggers_SpecialBorder" xml:space="preserve">
+    <value>Special Border</value>
+  </data>
+	<data name="Triggers_ToggleSpecialButton" xml:space="preserve">
+    <value>Toggle Special</value>
+  </data>
+	<data name="Triggers_DataTriggerResult" xml:space="preserve">
+    <value>* Changes color when IsSpecial = True</value>
+  </data>
+	<data name="Triggers_MultiTriggers" xml:space="preserve">
+    <value>Multi Triggers</value>
+  </data>
+	<data name="Triggers_MultiTriggersDesc" xml:space="preserve">
+    <value>Multiple conditions</value>
+  </data>
+	<data name="Triggers_InputField" xml:space="preserve">
+    <value>Input Field:</value>
+  </data>
+	<data name="Triggers_MultiTriggerResult" xml:space="preserve">
+    <value>* Orange highlight when focused and empty</value>
+  </data>
+	<data name="Triggers_DataEventTriggers" xml:space="preserve">
+    <value>Data + Event Triggers</value>
+  </data>
+	<data name="Triggers_Progress" xml:space="preserve">
+    <value>Progress:</value>
+  </data>
+	<data name="Triggers_EventTriggerTitle" xml:space="preserve">
+    <value>Event Trigger (animation)</value>
+  </data>
+	<data name="Triggers_AnimationButton" xml:space="preserve">
+    <value>Click for Animation</value>
+  </data>
+	<data name="Triggers_ProgressBarResult" xml:space="preserve">
+    <value>* Red at 10, green by default, yellow at 100%</value>
+  </data>
+	<data name="Triggers_EventTriggersTitle" xml:space="preserve">
+    <value>Event Triggers (examples)</value>
+  </data>
+	<data name="Triggers_OnLoad" xml:space="preserve">
+    <value>On Load</value>
+  </data>
+	<data name="Triggers_FadeIn" xml:space="preserve">
+    <value>Fade In</value>
+  </data>
+	<data name="Triggers_OnHover" xml:space="preserve">
+    <value>On Hover</value>
+  </data>
+	<data name="Triggers_Hover" xml:space="preserve">
+    <value>Hover</value>
+  </data>
+	<data name="Triggers_Description" xml:space="preserve">
+    <value>Description: PropertyTrigger - responds to property changes, DataTrigger - responds to data changes, EventTrigger - responds to events</value>
+  </data>
+
+	<!-- MessageBox Messages -->
+	<data name="Message_DataSaved" xml:space="preserve">
+    <value>Data saved successfully!</value>
+  </data>
+	<data name="Message_Error" xml:space="preserve">
+    <value>An error occurred</value>
+  </data>
+	<data name="Message_Title_Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+	<data name="Message_Title_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+	<data name="Message_Title_Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+	<data name="Message_Title_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+	<data name="Message_ConfirmDelete" xml:space="preserve">
+    <value>Are you sure you want to delete?</value>
+  </data>
+	<data name="Message_Welcome" xml:space="preserve">
+    <value>Welcome to the application!</value>
+  </data>
+	<data name="Message_OperationCompleted" xml:space="preserve">
+    <value>Operation completed successfully</value>
+  </data>
+	<data name="Message_ValidationError" xml:space="preserve">
+    <value>Please check the entered data</value>
+  </data>
+</root>

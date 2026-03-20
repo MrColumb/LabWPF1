@@ -3,276 +3,293 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:WPF_MVVM_Demo.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="Transparent">
 
     <UserControl.Resources>
-        <Style TargetType="Border" x:Key="DemoInnerBorder">
-            <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="8"/>
-            <Setter Property="Padding" Value="15"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="3"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
+            <Style TargetType="Border" x:Key="DemoInnerBorder">
+                <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="15"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="3"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
-        <Style TargetType="TextBlock" x:Key="DescriptionStyle">
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
-            <Setter Property="Opacity" Value="0.8"/>
-            <Setter Property="FontSize" Value="11"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-        </Style>
+            <Style TargetType="TextBlock" x:Key="DescriptionStyle">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
 
-        <Style TargetType="TextBlock" x:Key="ValueDisplayStyle">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="{StaticResource WarningBrush}"/>
-        </Style>
+            <Style TargetType="TextBlock" x:Key="ValueDisplayStyle">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="{StaticResource WarningBrush}"/>
+            </Style>
 
-        <Style x:Key="OneTimeButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="Background" Value="{StaticResource WarningBrush}"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+            <Style x:Key="OneTimeButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource WarningBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
 
-        <Style x:Key="FrozenValueStyle" TargetType="Border">
-            <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource DangerBrush}"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="CornerRadius" Value="5"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-    </UserControl.Resources>
+            <Style x:Key="FrozenValueStyle" TargetType="Border">
+                <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource DangerBrush}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </UserControl.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
-        <StackPanel Margin="5">
-            <TextBlock Text="Одноразовая привязка (OneTime)" 
+            <StackPanel Margin="5">
+                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Title}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource WarningBrush}"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- Демонстрация OneTime привязки -->
-                <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
-                    <StackPanel>
-                        <TextBlock Text="OneTime Binding (Замороженные данные)" 
+                    <!-- Демонстрация OneTime привязки -->
+                    <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_OneTimeDemo}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource DangerBrush}"/>
 
-                        <Border Style="{StaticResource FrozenValueStyle}">
-                            <StackPanel>
-                                <TextBlock Text="⏰ Текущее время (OneTime):" 
+                            <Border Style="{StaticResource FrozenValueStyle}">
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_CurrentTimeOneTime}" 
                                           Foreground="{StaticResource TextBrush}" 
                                           FontWeight="Bold"
                                           Margin="0,5"/>
-                                <TextBlock Text="{Binding CurrentTime, Mode=OneTime}" 
+                                    <TextBlock Text="{Binding CurrentTime, Mode=OneTime}" 
                                            Style="{StaticResource ValueDisplayStyle}"
                                            FontSize="16"
                                            Foreground="{StaticResource DangerBrush}"
                                            HorizontalAlignment="Center"
                                            Margin="0,5"/>
-                                <TextBlock Text="* Это значение НЕ изменится" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_ValueNotChange}" 
                                           Style="{StaticResource DescriptionStyle}"
                                           Foreground="{StaticResource DangerBrush}"
                                           HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Border>
+                                </StackPanel>
+                            </Border>
 
-                        <Border Style="{StaticResource FrozenValueStyle}" Margin="0,10">
-                            <StackPanel>
-                                <TextBlock Text="📝 Статический текст (OneTime):" 
+                            <Border Style="{StaticResource FrozenValueStyle}" Margin="0,10">
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_StaticTextOneTime}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"
                                           Margin="0,5"/>
-                                <TextBlock Text="{Binding StaticText, Mode=OneTime}" 
+                                    <TextBlock Text="{Binding StaticText, Mode=OneTime}" 
                                            Style="{StaticResource DescriptionStyle}"
                                            FontSize="14"
                                            Foreground="{StaticResource DangerBrush}"
                                            TextWrapping="Wrap"
                                            HorizontalAlignment="Center"
                                            Margin="0,5"/>
-                            </StackPanel>
-                        </Border>
+                                </StackPanel>
+                            </Border>
 
-                        <Button Content="🔄 Обновить время в ViewModel" 
+                            <Button Content="{res:LocalizationExtension Key=OneTimeBinding_UpdateTimeButton}" 
                                 Command="{Binding UpdateTimeCommand}"
                                 Margin="0,10" 
                                 Padding="15,8"
                                 Background="{StaticResource WarningBrush}"/>
 
-                        <Border Background="{StaticResource PanelBrush}" 
+                            <Border Background="{StaticResource PanelBrush}" 
                                 Padding="10" 
                                 Margin="0,5"
                                 CornerRadius="5">
-                            <StackPanel>
-                                <TextBlock Text="💡 Важно:" 
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Important}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource WarningBrush}"/>
-                                <TextBlock Text="• При нажатии кнопки время в ViewModel обновляется" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Important1}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                                <TextBlock Text="• OneTime привязка НЕ реагирует на изменения" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Important2}" 
                                           Style="{StaticResource DescriptionStyle}"
                                           Foreground="{StaticResource DangerBrush}"/>
-                                <TextBlock Text="• Значение остается 'замороженным'" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Important3}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </Border>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
 
-                <!-- Сравнение с OneWay -->
-                <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
-                    <StackPanel>
-                        <TextBlock Text="OneWay Binding (для сравнения)" 
+                    <!-- Сравнение с OneWay -->
+                    <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_ComparisonTitle}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <Border Background="{StaticResource PanelBrush}"
+                            <Border Background="{StaticResource PanelBrush}"
                                 BorderBrush="{StaticResource SuccessBrush}"
                                 BorderThickness="2"
                                 CornerRadius="5"
                                 Padding="10"
                                 Margin="5">
-                            <StackPanel>
-                                <TextBlock Text="⏰ Текущее время (OneWay):" 
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_CurrentTimeOneWay}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"
                                           Margin="0,5"/>
-                                <TextBlock Text="{Binding CurrentTime, Mode=OneWay}" 
+                                    <TextBlock Text="{Binding CurrentTime, Mode=OneWay}" 
                                            Style="{StaticResource ValueDisplayStyle}"
                                            FontSize="16"
                                            Foreground="{StaticResource SuccessBrush}"
                                            HorizontalAlignment="Center"
                                            Margin="0,5"/>
-                                <TextBlock Text="* Это значение ОБНОВЛЯЕТСЯ" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_ValueUpdates}" 
                                           Style="{StaticResource DescriptionStyle}"
                                           Foreground="{StaticResource SuccessBrush}"
                                           HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Border>
+                                </StackPanel>
+                            </Border>
 
-                        <Border Background="{StaticResource PanelBrush}"
+                            <Border Background="{StaticResource PanelBrush}"
                                 BorderBrush="{StaticResource SuccessBrush}"
                                 BorderThickness="2"
                                 CornerRadius="5"
                                 Padding="10"
                                 Margin="5,10">
-                            <StackPanel>
-                                <TextBlock Text="📝 Статический текст (OneWay):" 
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_StaticTextOneWay}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"
                                           Margin="0,5"/>
-                                <TextBlock Text="{Binding StaticText, Mode=OneWay}" 
+                                    <TextBlock Text="{Binding StaticText, Mode=OneWay}" 
                                            Style="{StaticResource DescriptionStyle}"
                                            FontSize="14"
                                            Foreground="{StaticResource SuccessBrush}"
                                            TextWrapping="Wrap"
                                            HorizontalAlignment="Center"
                                            Margin="0,5"/>
-                            </StackPanel>
-                        </Border>
+                                </StackPanel>
+                            </Border>
 
-                        <Border Background="{StaticResource PanelBrush}" 
+                            <Border Background="{StaticResource PanelBrush}" 
                                 Padding="10" 
                                 Margin="0,5"
                                 CornerRadius="5">
-                            <StackPanel>
-                                <TextBlock Text="✅ Особенности OneWay:" 
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_OneWayFeatures}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource SuccessBrush}"/>
-                                <TextBlock Text="• Следит за изменениями в ViewModel" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_OneWayFeat1}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                                <TextBlock Text="• Автоматически обновляется" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_OneWayFeat2}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                                <TextBlock Text="• Динамическое отображение" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_OneWayFeat3}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </Border>
-            </Grid>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
 
-            <Grid Margin="0,10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid Margin="0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- Данные Person с OneTime -->
-                <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
-                    <StackPanel>
-                        <TextBlock Text="👤 Данные Person (OneTime)" 
+                    <!-- Данные Person с OneTime -->
+                    <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_PersonDataOneTime}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource DangerBrush}"/>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Person.FirstName, Mode=OneTime}" Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
+                                <TextBlock Grid.Row="0" Grid.Column="0" 
+                                       Text="{res:LocalizationExtension Key=OneTimeBinding_FirstName}" 
+                                       FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" 
+                                       Text="{Binding Person.FirstName, Mode=OneTime}" 
+                                       Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
 
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Фамилия:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Person.LastName, Mode=OneTime}" Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" 
+                                       Text="{res:LocalizationExtension Key=OneTimeBinding_LastName}" 
+                                       FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" 
+                                       Text="{Binding Person.LastName, Mode=OneTime}" 
+                                       Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
 
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Возраст:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
-                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Person.Age, Mode=OneTime}" Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
+                                <TextBlock Grid.Row="2" Grid.Column="0" 
+                                       Text="{res:LocalizationExtension Key=OneTimeBinding_Age}" 
+                                       FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" 
+                                       Text="{Binding Person.Age, Mode=OneTime}" 
+                                       Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
 
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Email:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
-                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Person.Email, Mode=OneTime}" Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
-                        </Grid>
+                                <TextBlock Grid.Row="3" Grid.Column="0" 
+                                       Text="{res:LocalizationExtension Key=OneTimeBinding_Email}" 
+                                       FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" 
+                                       Text="{Binding Person.Email, Mode=OneTime}" 
+                                       Margin="10,5" Foreground="{StaticResource DangerBrush}"/>
+                            </Grid>
 
-                        <TextBlock Text="⚠️ Эти значения НЕ изменятся при обновлении данных" 
+                            <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_WarningText}" 
                                    Style="{StaticResource DescriptionStyle}"
                                    Foreground="{StaticResource DangerBrush}"
                                    TextWrapping="Wrap"
                                    Margin="0,10"/>
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                    </Border>
 
-                <!-- Область для изменения данных -->
-                <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}" 
+                    <!-- Область для изменения данных -->
+                    <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}" 
                         Background="{StaticResource PanelBrush}">
-                    <StackPanel>
-                        <TextBlock Text="✏️ Изменение данных в ViewModel" 
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_EditViewModel}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <TextBlock Text="Новое имя:" 
+                            <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_NewNameLabel}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
-                        <TextBox x:Name="NewNameTextBox" 
-                                 Text="Новое имя" 
+                            <TextBox x:Name="NewNameTextBox" 
+                                 Text="{res:LocalizationExtension Key=OneTimeBinding_NewNamePlaceholder}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelLightBrush}"
                                  Foreground="{StaticResource TextBrush}"/>
 
-                        <Button Content="🔄 Изменить имя в Person" 
+                            <Button Content="{res:LocalizationExtension Key=OneTimeBinding_ChangeNameButton}" 
                                 Command="{Binding UpdatePersonNameCommand}"
                                 CommandParameter="Новое имя"
                                 Style="{StaticResource OneTimeButtonStyle}"
@@ -280,71 +297,71 @@
                                 Margin="0,5" 
                                 Padding="15,8"/>
 
-                        <Border Background="{StaticResource PanelLightBrush}" 
+                            <Border Background="{StaticResource PanelLightBrush}" 
                                 Padding="10" 
                                 Margin="0,10"
                                 CornerRadius="5">
-                            <StackPanel>
-                                <TextBlock Text="📋 Результат:" 
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Result}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource TextBrush}"/>
-                                <TextBlock Text="• В левой колонке (OneTime) имя НЕ изменится" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Result1}" 
                                           Style="{StaticResource DescriptionStyle}"
                                           Foreground="{StaticResource DangerBrush}"/>
-                                <TextBlock Text="• В ViewModel данные обновились, но отображение заморожено" 
+                                    <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Result2}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                </Border>
-            </Grid>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
 
-            <Border Background="{StaticResource PanelBrush}" 
+                <Border Background="{StaticResource PanelBrush}" 
                     Padding="20" 
                     Margin="5,10"
                     CornerRadius="8"
                     BorderBrush="{StaticResource WarningBrush}"
                     BorderThickness="2">
-                <StackPanel>
-                    <TextBlock Text="📖 Описание одноразовой привязки (OneTime)" 
+                    <StackPanel>
+                        <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_DescriptionTitle}" 
                               FontSize="16" 
                               FontWeight="Bold"
                               Foreground="{StaticResource WarningBrush}"
                               Margin="0,0,0,10"/>
-                    <TextBlock Text="Одноразовая привязка (OneTime) устанавливает значение один раз при создании привязки и не отслеживает последующие изменения. Это эффективно для статических данных или когда нужно показать 'снимок' данных на момент загрузки." 
+                        <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_DescriptionText}" 
                               TextWrapping="Wrap" 
                               Foreground="{StaticResource TextBrush}"
                               Margin="0,0,0,10"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0">
-                            <TextBlock Text="✅ Преимущества:" 
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Advantages}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
-                            <TextBlock Text="• Минимальная нагрузка" 
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Adv1}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Не следит за изменениями" 
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Adv2}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Быстрая загрузка" 
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Adv3}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                        </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Text="⚠️ Недостатки:" 
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Disadvantages}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource DangerBrush}"/>
-                            <TextBlock Text="• Не обновляется" 
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Disadv1}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Только начальное значение" 
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Disadv2}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Не подходит для динамики" 
+                                <TextBlock Text="{res:LocalizationExtension Key=OneTimeBinding_Disadv3}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                        </StackPanel>
-                    </Grid>
-                </StackPanel>
-            </Border>
-        </StackPanel>
-    </ScrollViewer>
-</UserControl>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </UserControl>

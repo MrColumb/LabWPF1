@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+
+	<!-- MainWindow -->
+	<data name="MainWindow_Title" xml:space="preserve">
+    <value>Лабораторная работа №1: Виды привязок в WPF</value>
+  </data>
+	<data name="MainWindow_Subtitle" xml:space="preserve">
+    <value>Демонстрация различных типов привязок и триггеров</value>
+  </data>
+
+	<!-- Tab Headers -->
+	<data name="Tab_DefaultBinding" xml:space="preserve">
+    <value>Привязка по умолчанию</value>
+  </data>
+	<data name="Tab_TwoWayBinding" xml:space="preserve">
+    <value>Двухсторонняя привязка</value>
+  </data>
+	<data name="Tab_OneTimeBinding" xml:space="preserve">
+    <value>Одноразовая привязка</value>
+  </data>
+	<data name="Tab_OneWayBinding" xml:space="preserve">
+    <value>Односторонние привязки</value>
+  </data>
+	<data name="Tab_Triggers" xml:space="preserve">
+    <value>Триггеры</value>
+  </data>
+
+	<!-- Language Selection -->
+	<data name="Language_Select" xml:space="preserve">
+    <value>Выбор языка</value>
+  </data>
+	<data name="Language_Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+	<data name="Language_English" xml:space="preserve">
+    <value>English</value>
+  </data>
+
+	<!-- DefaultBindingView -->
+	<data name="DefaultBinding_Title" xml:space="preserve">
+    <value>Привязка по умолчанию (Default)</value>
+  </data>
+	<data name="DefaultBinding_DirectBindingTitle" xml:space="preserve">
+    <value>Прямая привязка к элементам интерфейса</value>
+  </data>
+	<data name="DefaultBinding_TextBoxLabel" xml:space="preserve">
+    <value>Текстовое поле:</value>
+  </data>
+	<data name="DefaultBinding_TextBoxPlaceholder" xml:space="preserve">
+    <value>Введите текст</value>
+  </data>
+	<data name="DefaultBinding_TextFromTextBox" xml:space="preserve">
+    <value>Текст из TextBox:</value>
+  </data>
+	<data name="DefaultBinding_DirectBindingDesc" xml:space="preserve">
+    <value>При изменении текста в верхнем поле, нижнее обновляется автоматически</value>
+  </data>
+	<data name="DefaultBinding_ViewModelBindingTitle" xml:space="preserve">
+    <value>Привязка через ViewModel</value>
+  </data>
+	<data name="DefaultBinding_FirstName" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+	<data name="DefaultBinding_LastName" xml:space="preserve">
+    <value>Фамилия:</value>
+  </data>
+	<data name="DefaultBinding_Age" xml:space="preserve">
+    <value>Возраст:</value>
+  </data>
+	<data name="DefaultBinding_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+	<data name="DefaultBinding_IsStudent" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+	<data name="DefaultBinding_FullName" xml:space="preserve">
+    <value>Полное имя:</value>
+  </data>
+	<data name="DefaultBinding_FullNameDesc" xml:space="preserve">
+    <value>* Обновляется автоматически при изменении имени или фамилии</value>
+  </data>
+	<data name="DefaultBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 Описание привязки по умолчанию (Default)</value>
+  </data>
+	<data name="DefaultBinding_DescriptionText" xml:space="preserve">
+    <value>Привязка по умолчанию (Default) автоматически выбирает режим в зависимости от ситуации:</value>
+  </data>
+	<data name="DefaultBinding_ReadOnlyProps" xml:space="preserve">
+    <value>✅ Для свойств только для чтения:</value>
+  </data>
+	<data name="DefaultBinding_TextBlockText" xml:space="preserve">
+    <value>• TextBlock.Text</value>
+  </data>
+	<data name="DefaultBinding_LabelContent" xml:space="preserve">
+    <value>• Label.Content</value>
+  </data>
+	<data name="DefaultBinding_OneWayMode" xml:space="preserve">
+    <value>• Использует OneWay</value>
+  </data>
+	<data name="DefaultBinding_EditableProps" xml:space="preserve">
+    <value>🔄 Для редактируемых свойств:</value>
+  </data>
+	<data name="DefaultBinding_TextBoxText" xml:space="preserve">
+    <value>• TextBox.Text</value>
+  </data>
+	<data name="DefaultBinding_CheckBoxIsChecked" xml:space="preserve">
+    <value>• CheckBox.IsChecked</value>
+  </data>
+	<data name="DefaultBinding_TwoWayMode" xml:space="preserve">
+    <value>• Использует TwoWay</value>
+  </data>
+
+	<!-- TwoWayBindingView -->
+	<data name="TwoWayBinding_Title" xml:space="preserve">
+    <value>Двухсторонняя привязка (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_TextBoxExample" xml:space="preserve">
+    <value>Пример с TextBox (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_EnterText" xml:space="preserve">
+    <value>Введите текст:</value>
+  </data>
+	<data name="TwoWayBinding_TextFromViewModel" xml:space="preserve">
+    <value>Текст из ViewModel:</value>
+  </data>
+	<data name="TwoWayBinding_TextLength" xml:space="preserve">
+    <value>Длина текста:</value>
+  </data>
+	<data name="TwoWayBinding_SyncDesc" xml:space="preserve">
+    <value>Изменения синхронизируются в обоих направлениях</value>
+  </data>
+	<data name="TwoWayBinding_CheckBoxExample" xml:space="preserve">
+    <value>Пример с CheckBox (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_Active" xml:space="preserve">
+    <value>Активно</value>
+  </data>
+	<data name="TwoWayBinding_StateInViewModel" xml:space="preserve">
+    <value>Состояние в ViewModel:</value>
+  </data>
+	<data name="TwoWayBinding_StateDesc" xml:space="preserve">
+    <value>True - включено, False - выключено</value>
+  </data>
+	<data name="TwoWayBinding_CheckBoxDesc" xml:space="preserve">
+    <value>При изменении CheckBox, значение в ViewModel обновляется и наоборот</value>
+  </data>
+	<data name="TwoWayBinding_EditPerson" xml:space="preserve">
+    <value>Редактирование Person (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_FirstName" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+	<data name="TwoWayBinding_LastName" xml:space="preserve">
+    <value>Фамилия:</value>
+  </data>
+	<data name="TwoWayBinding_Age" xml:space="preserve">
+    <value>Возраст:</value>
+  </data>
+	<data name="TwoWayBinding_IsStudent" xml:space="preserve">
+    <value>Студент</value>
+  </data>
+	<data name="TwoWayBinding_CurrentValues" xml:space="preserve">
+    <value>Текущие значения Person:</value>
+  </data>
+	<data name="TwoWayBinding_RealTimeUpdate" xml:space="preserve">
+    <value>* Обновляется в реальном времени</value>
+  </data>
+	<data name="TwoWayBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 Описание двухсторонней привязки (TwoWay)</value>
+  </data>
+	<data name="TwoWayBinding_DescriptionText" xml:space="preserve">
+    <value>Двухсторонняя привязка обеспечивает синхронизацию данных в обоих направлениях:</value>
+  </data>
+	<data name="TwoWayBinding_UIToViewModel" xml:space="preserve">
+    <value>⬇️ UI → ViewModel</value>
+  </data>
+	<data name="TwoWayBinding_UIChange1" xml:space="preserve">
+    <value>• Изменение в текстовом поле</value>
+  </data>
+	<data name="TwoWayBinding_UIChange2" xml:space="preserve">
+    <value>• Переключение CheckBox</value>
+  </data>
+	<data name="TwoWayBinding_UIChange3" xml:space="preserve">
+    <value>• Выбор в ComboBox</value>
+  </data>
+	<data name="TwoWayBinding_UIChange4" xml:space="preserve">
+    <value>• Данные передаются в модель</value>
+  </data>
+	<data name="TwoWayBinding_ViewModelToUI" xml:space="preserve">
+    <value>⬆️ ViewModel → UI</value>
+  </data>
+	<data name="TwoWayBinding_VMChange1" xml:space="preserve">
+    <value>• Обновление данных в коде</value>
+  </data>
+	<data name="TwoWayBinding_VMChange2" xml:space="preserve">
+    <value>• Загрузка новых значений</value>
+  </data>
+	<data name="TwoWayBinding_VMChange3" xml:space="preserve">
+    <value>• Изменение состояния</value>
+  </data>
+	<data name="TwoWayBinding_VMChange4" xml:space="preserve">
+    <value>• Интерфейс обновляется</value>
+  </data>
+	<data name="TwoWayBinding_Advantages" xml:space="preserve">
+    <value>✅ Преимущества:</value>
+  </data>
+	<data name="TwoWayBinding_Adv1" xml:space="preserve">
+    <value>• Автоматическая синхронизация</value>
+  </data>
+	<data name="TwoWayBinding_Adv2" xml:space="preserve">
+    <value>• Не нужно писать код обновления</value>
+  </data>
+	<data name="TwoWayBinding_Adv3" xml:space="preserve">
+    <value>• Данные всегда актуальны</value>
+  </data>
+	<data name="TwoWayBinding_Features" xml:space="preserve">
+    <value>⚠️ Особенности:</value>
+  </data>
+	<data name="TwoWayBinding_Feat1" xml:space="preserve">
+    <value>• UpdateSourceTrigger влияет на момент обновления</value>
+  </data>
+	<data name="TwoWayBinding_Feat2" xml:space="preserve">
+    <value>• Можно отключить для оптимизации</value>
+  </data>
+	<data name="TwoWayBinding_Feat3" xml:space="preserve">
+    <value>• Требует INotifyPropertyChanged</value>
+  </data>
+
+	<!-- OneTimeBindingView -->
+	<data name="OneTimeBinding_Title" xml:space="preserve">
+    <value>Одноразовая привязка (OneTime)</value>
+  </data>
+	<data name="OneTimeBinding_OneTimeDemo" xml:space="preserve">
+    <value>OneTime Binding (Замороженные данные)</value>
+  </data>
+	<data name="OneTimeBinding_CurrentTimeOneTime" xml:space="preserve">
+    <value>⏰ Текущее время (OneTime):</value>
+  </data>
+	<data name="OneTimeBinding_ValueNotChange" xml:space="preserve">
+    <value>* Это значение НЕ изменится</value>
+  </data>
+	<data name="OneTimeBinding_StaticTextOneTime" xml:space="preserve">
+    <value>📝 Статический текст (OneTime):</value>
+  </data>
+	<data name="OneTimeBinding_UpdateTimeButton" xml:space="preserve">
+    <value>🔄 Обновить время в ViewModel</value>
+  </data>
+	<data name="OneTimeBinding_Important" xml:space="preserve">
+    <value>💡 Важно:</value>
+  </data>
+	<data name="OneTimeBinding_Important1" xml:space="preserve">
+    <value>• При нажатии кнопки время в ViewModel обновляется</value>
+  </data>
+	<data name="OneTimeBinding_Important2" xml:space="preserve">
+    <value>• OneTime привязка НЕ реагирует на изменения</value>
+  </data>
+	<data name="OneTimeBinding_Important3" xml:space="preserve">
+    <value>• Значение остается 'замороженным'</value>
+  </data>
+	<data name="OneTimeBinding_ComparisonTitle" xml:space="preserve">
+    <value>OneWay Binding (для сравнения)</value>
+  </data>
+	<data name="OneTimeBinding_CurrentTimeOneWay" xml:space="preserve">
+    <value>⏰ Текущее время (OneWay):</value>
+  </data>
+	<data name="OneTimeBinding_ValueUpdates" xml:space="preserve">
+    <value>* Это значение ОБНОВЛЯЕТСЯ</value>
+  </data>
+	<data name="OneTimeBinding_StaticTextOneWay" xml:space="preserve">
+    <value>📝 Статический текст (OneWay):</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeatures" xml:space="preserve">
+    <value>✅ Особенности OneWay:</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeat1" xml:space="preserve">
+    <value>• Следит за изменениями в ViewModel</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeat2" xml:space="preserve">
+    <value>• Автоматически обновляется</value>
+  </data>
+	<data name="OneTimeBinding_OneWayFeat3" xml:space="preserve">
+    <value>• Динамическое отображение</value>
+  </data>
+	<data name="OneTimeBinding_PersonDataOneTime" xml:space="preserve">
+    <value>👤 Данные Person (OneTime)</value>
+  </data>
+	<data name="OneTimeBinding_FirstName" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+	<data name="OneTimeBinding_LastName" xml:space="preserve">
+    <value>Фамилия:</value>
+  </data>
+	<data name="OneTimeBinding_Age" xml:space="preserve">
+    <value>Возраст:</value>
+  </data>
+	<data name="OneTimeBinding_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+	<data name="OneTimeBinding_WarningText" xml:space="preserve">
+    <value>⚠️ Эти значения НЕ изменятся при обновлении данных</value>
+  </data>
+	<data name="OneTimeBinding_EditViewModel" xml:space="preserve">
+    <value>✏️ Изменение данных в ViewModel</value>
+  </data>
+	<data name="OneTimeBinding_NewNameLabel" xml:space="preserve">
+    <value>Новое имя:</value>
+  </data>
+	<data name="OneTimeBinding_NewNamePlaceholder" xml:space="preserve">
+    <value>Новое имя</value>
+  </data>
+	<data name="OneTimeBinding_ChangeNameButton" xml:space="preserve">
+    <value>🔄 Изменить имя в Person</value>
+  </data>
+	<data name="OneTimeBinding_Result" xml:space="preserve">
+    <value>📋 Результат:</value>
+  </data>
+	<data name="OneTimeBinding_Result1" xml:space="preserve">
+    <value>• В левой колонке (OneTime) имя НЕ изменится</value>
+  </data>
+	<data name="OneTimeBinding_Result2" xml:space="preserve">
+    <value>• В ViewModel данные обновились, но отображение заморожено</value>
+  </data>
+	<data name="OneTimeBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 Описание одноразовой привязки (OneTime)</value>
+  </data>
+	<data name="OneTimeBinding_DescriptionText" xml:space="preserve">
+    <value>Одноразовая привязка (OneTime) устанавливает значение один раз при создании привязки и не отслеживает последующие изменения. Это эффективно для статических данных или когда нужно показать 'снимок' данных на момент загрузки.</value>
+  </data>
+	<data name="OneTimeBinding_Advantages" xml:space="preserve">
+    <value>✅ Преимущества:</value>
+  </data>
+	<data name="OneTimeBinding_Adv1" xml:space="preserve">
+    <value>• Минимальная нагрузка</value>
+  </data>
+	<data name="OneTimeBinding_Adv2" xml:space="preserve">
+    <value>• Не следит за изменениями</value>
+  </data>
+	<data name="OneTimeBinding_Adv3" xml:space="preserve">
+    <value>• Быстрая загрузка</value>
+  </data>
+	<data name="OneTimeBinding_Disadvantages" xml:space="preserve">
+    <value>⚠️ Недостатки:</value>
+  </data>
+	<data name="OneTimeBinding_Disadv1" xml:space="preserve">
+    <value>• Не обновляется</value>
+  </data>
+	<data name="OneTimeBinding_Disadv2" xml:space="preserve">
+    <value>• Только начальное значение</value>
+  </data>
+	<data name="OneTimeBinding_Disadv3" xml:space="preserve">
+    <value>• Не подходит для динамики</value>
+  </data>
+
+	<!-- OneWayBindingView -->
+	<data name="OneWayBinding_Title" xml:space="preserve">
+    <value>Односторонние привязки (OneWay)</value>
+  </data>
+	<data name="OneWayBinding_OneWayTitle" xml:space="preserve">
+    <value>OneWay (ViewModel → UI)</value>
+  </data>
+	<data name="OneWayBinding_DataFlowDesc" xml:space="preserve">
+    <value>⬇️ Поток данных: источник → цель</value>
+  </data>
+	<data name="OneWayBinding_CounterLabel" xml:space="preserve">
+    <value>🔢 Счетчик в ViewModel:</value>
+  </data>
+	<data name="OneWayBinding_IncrementButton" xml:space="preserve">
+    <value>➕ Увеличить счетчик</value>
+  </data>
+	<data name="OneWayBinding_ReadOnlyText" xml:space="preserve">
+    <value>📝 Текст только для чтения:</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc" xml:space="preserve">
+    <value>✅ Изменения в ViewModel обновляют интерфейс, но не наоборот</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceTitle" xml:space="preserve">
+    <value>OneWayToSource (UI → ViewModel)</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceFlow" xml:space="preserve">
+    <value>⬆️ Поток данных: цель → источник</value>
+  </data>
+	<data name="OneWayBinding_EnterTextLabel" xml:space="preserve">
+    <value>✏️ Введи текст (обновляет ViewModel):</value>
+  </data>
+	<data name="OneWayBinding_CurrentValueLabel" xml:space="preserve">
+    <value>📊 Текущее значение в ViewModel:</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc" xml:space="preserve">
+    <value>⚠️ Изменения в интерфейсе обновляют ViewModel, но изменения в ViewModel НЕ обновляют интерфейс</value>
+  </data>
+	<data name="OneWayBinding_PersonDataTitle" xml:space="preserve">
+    <value>👤 Данные Person (OneWay)</value>
+  </data>
+	<data name="OneWayBinding_FirstName" xml:space="preserve">
+    <value>Имя:</value>
+  </data>
+	<data name="OneWayBinding_LastName" xml:space="preserve">
+    <value>Фамилия:</value>
+  </data>
+	<data name="OneWayBinding_Age" xml:space="preserve">
+    <value>Возраст:</value>
+  </data>
+	<data name="OneWayBinding_FullName" xml:space="preserve">
+    <value>Полное имя:</value>
+  </data>
+	<data name="OneWayBinding_PersonUpdateDesc" xml:space="preserve">
+    <value>* Обновляется при изменении в ViewModel</value>
+  </data>
+	<data name="OneWayBinding_ControlPersonTitle" xml:space="preserve">
+    <value>🎮 Управление Person в ViewModel</value>
+  </data>
+	<data name="OneWayBinding_ChangeNameButton" xml:space="preserve">
+    <value>🔄 Изменить имя на 'Новое имя'</value>
+  </data>
+	<data name="OneWayBinding_IncreaseAgeButton" xml:space="preserve">
+    <value>⬆️ Увеличить возраст</value>
+  </data>
+	<data name="OneWayBinding_Result" xml:space="preserve">
+    <value>📋 Результат:</value>
+  </data>
+	<data name="OneWayBinding_Result1" xml:space="preserve">
+    <value>• Изменения отобразятся в левой колонке</value>
+  </data>
+	<data name="OneWayBinding_Result2" xml:space="preserve">
+    <value>• OneWay привязка автоматически обновит UI</value>
+  </data>
+	<data name="OneWayBinding_Result3" xml:space="preserve">
+    <value>• UI не может напрямую изменить эти значения</value>
+  </data>
+	<data name="OneWayBinding_DescriptionTitle" xml:space="preserve">
+    <value>📖 Описание односторонних привязок</value>
+  </data>
+	<data name="OneWayBinding_OneWayDescTitle" xml:space="preserve">
+    <value>✅ OneWay (ViewModel → UI)</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc1" xml:space="preserve">
+    <value>• Данные текут только от источника к цели</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc2" xml:space="preserve">
+    <value>• Изменения в ViewModel обновляют UI</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc3" xml:space="preserve">
+    <value>• Изменения в UI не влияют на ViewModel</value>
+  </data>
+	<data name="OneWayBinding_OneWayDesc4" xml:space="preserve">
+    <value>• Идеально для отображения данных</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDescTitle" xml:space="preserve">
+    <value>⚠️ OneWayToSource (UI → ViewModel)</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc1" xml:space="preserve">
+    <value>• Данные текут от цели к источнику</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc2" xml:space="preserve">
+    <value>• Изменения в UI обновляют ViewModel</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc3" xml:space="preserve">
+    <value>• Изменения в ViewModel не видны в UI</value>
+  </data>
+	<data name="OneWayBinding_OneWayToSourceDesc4" xml:space="preserve">
+    <value>• Полезно для сбора данных</value>
+  </data>
+
+	<!-- TriggersView -->
+	<data name="Triggers_Title" xml:space="preserve">
+    <value>Триггеры в WPF</value>
+  </data>
+	<data name="Triggers_PropertyTriggers" xml:space="preserve">
+    <value>Property Triggers</value>
+  </data>
+	<data name="Triggers_PropertyTriggersDesc" xml:space="preserve">
+    <value>Триггеры свойств реагируют на изменения свойств элемента</value>
+  </data>
+	<data name="Triggers_HoverButton" xml:space="preserve">
+    <value>Наведи мышь</value>
+  </data>
+	<data name="Triggers_PressButton" xml:space="preserve">
+    <value>Нажми меня</value>
+  </data>
+	<data name="Triggers_PropertyTriggerResult" xml:space="preserve">
+    <value>Изменения при наведении и нажатии</value>
+  </data>
+	<data name="Triggers_DataTriggers" xml:space="preserve">
+    <value>Data Triggers</value>
+  </data>
+	<data name="Triggers_DataTriggersDesc" xml:space="preserve">
+    <value>Триггеры данных реагируют на изменения в данных</value>
+  </data>
+	<data name="Triggers_SpecialBorder" xml:space="preserve">
+    <value>Special Border</value>
+  </data>
+	<data name="Triggers_ToggleSpecialButton" xml:space="preserve">
+    <value>Toggle Special</value>
+  </data>
+	<data name="Triggers_DataTriggerResult" xml:space="preserve">
+    <value>* Меняет цвет при IsSpecial = True</value>
+  </data>
+	<data name="Triggers_MultiTriggers" xml:space="preserve">
+    <value>Multi Triggers</value>
+  </data>
+	<data name="Triggers_MultiTriggersDesc" xml:space="preserve">
+    <value>Множественные условия</value>
+  </data>
+	<data name="Triggers_InputField" xml:space="preserve">
+    <value>Поле ввода:</value>
+  </data>
+	<data name="Triggers_MultiTriggerResult" xml:space="preserve">
+    <value>* Оранжевая подсветка при фокусе и пустом тексте</value>
+  </data>
+	<data name="Triggers_DataEventTriggers" xml:space="preserve">
+    <value>Data + Event Triggers</value>
+  </data>
+	<data name="Triggers_Progress" xml:space="preserve">
+    <value>Прогресс:</value>
+  </data>
+	<data name="Triggers_EventTriggerTitle" xml:space="preserve">
+    <value>Event Trigger (анимация)</value>
+  </data>
+	<data name="Triggers_AnimationButton" xml:space="preserve">
+    <value>Нажми для анимации</value>
+  </data>
+	<data name="Triggers_ProgressBarResult" xml:space="preserve">
+    <value>* Красный при 10, зеленый по умолчанию, желтый при 100%</value>
+  </data>
+	<data name="Triggers_EventTriggersTitle" xml:space="preserve">
+    <value>Event Triggers (примеры)</value>
+  </data>
+	<data name="Triggers_OnLoad" xml:space="preserve">
+    <value>При загрузке</value>
+  </data>
+	<data name="Triggers_FadeIn" xml:space="preserve">
+    <value>Fade In</value>
+  </data>
+	<data name="Triggers_OnHover" xml:space="preserve">
+    <value>При наведении</value>
+  </data>
+	<data name="Triggers_Hover" xml:space="preserve">
+    <value>Hover</value>
+  </data>
+	<data name="Triggers_Description" xml:space="preserve">
+    <value>Описание: PropertyTrigger - на изменения свойств, DataTrigger - на данные, EventTrigger - на события</value>
+  </data>
+
+	<!-- MessageBox Messages -->
+	<data name="Message_DataSaved" xml:space="preserve">
+    <value>Данные успешно сохранены!</value>
+  </data>
+	<data name="Message_Error" xml:space="preserve">
+    <value>Произошла ошибка</value>
+  </data>
+	<data name="Message_Title_Success" xml:space="preserve">
+    <value>Успех</value>
+  </data>
+	<data name="Message_Title_Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+	<data name="Message_Title_Info" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+	<data name="Message_Title_Warning" xml:space="preserve">
+    <value>Предупреждение</value>
+  </data>
+	<data name="Message_ConfirmDelete" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить?</value>
+  </data>
+	<data name="Message_Welcome" xml:space="preserve">
+    <value>Добро пожаловать в приложение!</value>
+  </data>
+	<data name="Message_OperationCompleted" xml:space="preserve">
+    <value>Операция успешно выполнена</value>
+  </data>
+	<data name="Message_ValidationError" xml:space="preserve">
+    <value>Проверьте введенные данные</value>
+  </data>
+</root>

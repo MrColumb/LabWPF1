@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WPF_MVVM_Demo.ViewModels"
         xmlns:views="clr-namespace:WPF_MVVM_Demo.Views"
-        Title="Демонстрация привязок WPF" 
+        xmlns:res="clr-namespace:WPF_MVVM_Demo.Resources"
+        Title="{res:LocalizationExtension MainWindow_Title}" 
         Height="800" 
         Width="1100"
         WindowStartupLocation="CenterScreen"
@@ -16,23 +17,51 @@
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок с градиентом -->
+        <!-- Выбор языка -->
         <Border Grid.Row="0"
+                Background="{StaticResource PanelBrush}"
+                CornerRadius="8"
+                Padding="10,5"
+                Margin="0,0,0,10"
+                HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{res:LocalizationExtension Language_Select}" 
+                           Foreground="{StaticResource TextBrush}"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"/>
+                <ComboBox ItemsSource="{Binding Languages}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="Code"
+                          SelectedValue="{Binding CurrentLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Background="{StaticResource PanelLightBrush}"
+                          Foreground="{StaticResource TextBrush}">
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                            <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="1"
                 Background="{StaticResource PanelBrush}"
                 CornerRadius="8"
                 Padding="20"
                 Margin="0,0,0,15">
             <StackPanel>
-                <TextBlock Text="Лабораторная работа №1: Виды привязок в WPF" 
+                <TextBlock Text="{res:LocalizationExtension MainWindow_Title}" 
                           FontSize="24" 
                           FontWeight="Bold" 
                           Foreground="{StaticResource AccentBrush}"
                           HorizontalAlignment="Center"/>
-                <TextBlock Text="Демонстрация различных типов привязок и триггеров"
+                <TextBlock Text="{res:LocalizationExtension MainWindow_Subtitle}"
                           FontSize="14"
                           Foreground="{StaticResource TextBrush}"
                           HorizontalAlignment="Center"
@@ -41,36 +70,35 @@
         </Border>
 
         <!-- TabControl -->
-        <TabControl Grid.Row="1" 
+        <TabControl Grid.Row="2" 
                     SelectedItem="{Binding SelectedViewModel}"
                     Background="Transparent"
                     BorderThickness="0">
-
-            <TabItem Header="Привязка по умолчанию">
+            <TabItem Header="{res:LocalizationExtension Tab_DefaultBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:DefaultBindingView DataContext="{Binding DefaultBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Двухсторонняя привязка">
+            <TabItem Header="{res:LocalizationExtension Tab_TwoWayBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:TwoWayBindingView DataContext="{Binding TwoWayBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Одноразовая привязка">
+            <TabItem Header="{res:LocalizationExtension Tab_OneTimeBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:OneTimeBindingView DataContext="{Binding OneTimeBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Односторонние привязки">
+            <TabItem Header="{res:LocalizationExtension Tab_OneWayBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:OneWayBindingView DataContext="{Binding OneWayBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Триггеры">
+            <TabItem Header="{res:LocalizationExtension Tab_Triggers}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:TriggersView DataContext="{Binding TriggersVM}"/>
                 </Border>

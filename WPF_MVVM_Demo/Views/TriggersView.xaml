@@ -4,443 +4,444 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_MVVM_Demo.ViewModels"
+             xmlns:res="clr-namespace:WPF_MVVM_Demo.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="800"
              Background="Transparent">
 
     <UserControl.Resources>
-        <!-- Добавляем недостающие стили -->
-        <Style TargetType="TextBlock" x:Key="DescriptionStyle">
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
-            <Setter Property="Opacity" Value="0.8"/>
-            <Setter Property="FontSize" Value="11"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-        </Style>
+            <!-- Добавляем недостающие стили -->
+            <Style TargetType="TextBlock" x:Key="DescriptionStyle">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Opacity" Value="0.8"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
 
-        <Style TargetType="TextBlock" x:Key="SubHeaderStyle">
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
-        </Style>
+            <Style TargetType="TextBlock" x:Key="SubHeaderStyle">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
 
-        <Style TargetType="TextBlock" x:Key="SectionHeaderStyle">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="Margin" Value="0,0,0,15"/>
-        </Style>
+            <Style TargetType="TextBlock" x:Key="SectionHeaderStyle">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="Margin" Value="0,0,0,15"/>
+            </Style>
 
-        <!-- Стиль для边框 с обновленными цветами -->
-        <Style TargetType="Border" x:Key="DemoBorder">
-            <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="8"/>
-            <Setter Property="Padding" Value="15"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="3"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
+            <!-- Стиль для边框 с обновленными цветами -->
+            <Style TargetType="Border" x:Key="DemoBorder">
+                <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="15"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="3"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
-        <Style TargetType="TextBlock" x:Key="HeaderStyle">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
-        </Style>
+            <Style TargetType="TextBlock" x:Key="HeaderStyle">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            </Style>
 
-        <!-- Стиль с триггерами свойств -->
-        <Style x:Key="PropertyTriggerButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="120"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
+            <!-- Стиль с триггерами свойств -->
+            <Style x:Key="PropertyTriggerButtonStyle" TargetType="Button">
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
                                 CornerRadius="5"
                                 BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center"
+                                <ContentPresenter HorizontalAlignment="Center"
                                             VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource AccentLightBrush}"/>
-                    <Setter Property="FontSize" Value="16"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="{StaticResource SuccessBrush}"/>
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Background" Value="#7F8C8D"/>
-                    <Setter Property="Foreground" Value="#BDC3C7"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource AccentLightBrush}"/>
+                        <Setter Property="FontSize" Value="16"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="{StaticResource SuccessBrush}"/>
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Background" Value="#7F8C8D"/>
+                        <Setter Property="Foreground" Value="#BDC3C7"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
 
-        <!-- Стиль с DataTrigger -->
-        <Style x:Key="DataTriggerBorderStyle" TargetType="Border">
-            <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="20"/>
-            <Setter Property="CornerRadius" Value="8"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsSpecial}" Value="True">
-                    <Setter Property="Background" Value="{StaticResource WarningBrush}"/>
-                    <Setter Property="BorderBrush" Value="{StaticResource DangerBrush}"/>
-                    <Setter Property="BorderThickness" Value="3"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+            <!-- Стиль с DataTrigger -->
+            <Style x:Key="DataTriggerBorderStyle" TargetType="Border">
+                <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Padding" Value="20"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsSpecial}" Value="True">
+                        <Setter Property="Background" Value="{StaticResource WarningBrush}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource DangerBrush}"/>
+                        <Setter Property="BorderThickness" Value="3"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
 
-        <!-- Стиль с MultiTrigger -->
-        <Style x:Key="MultiTriggerTextBoxStyle" TargetType="TextBox">
-            <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
-            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="8,5"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}"
+            <!-- Стиль с MultiTrigger -->
+            <Style x:Key="MultiTriggerTextBoxStyle" TargetType="TextBox">
+                <Setter Property="Background" Value="{StaticResource PanelLightBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="8,5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="5">
-                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsFocused" Value="True"/>
-                        <Condition Property="Text" Value=""/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
-                    <Setter Property="BorderBrush" Value="{StaticResource WarningBrush}"/>
-                    <Setter Property="BorderThickness" Value="2"/>
-                </MultiTrigger>
-            </Style.Triggers>
-        </Style>
+                                <ScrollViewer x:Name="PART_ContentHost" Margin="5,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsFocused" Value="True"/>
+                            <Condition Property="Text" Value=""/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource WarningBrush}"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                    </MultiTrigger>
+                </Style.Triggers>
+            </Style>
 
-        <!-- Стиль с MultiDataTrigger -->
-        <Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
-            <Setter Property="Height" Value="25"/>
-            <Setter Property="Foreground" Value="{StaticResource SuccessBrush}"/>
-            <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Progress}" Value="100">
-                    <Setter Property="Foreground" Value="{StaticResource WarningBrush}"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding Progress}" Value="10">
-                    <Setter Property="Foreground" Value="{StaticResource DangerBrush}"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+            <!-- Стиль с MultiDataTrigger -->
+            <Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="Foreground" Value="{StaticResource SuccessBrush}"/>
+                <Setter Property="Background" Value="{StaticResource PanelBrush}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Progress}" Value="100">
+                        <Setter Property="Foreground" Value="{StaticResource WarningBrush}"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Progress}" Value="10">
+                        <Setter Property="Foreground" Value="{StaticResource DangerBrush}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
 
-        <!-- Стиль для обычных кнопок -->
-        <Style x:Key="TriggerButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-            <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Padding" Value="15,8"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource AccentLightBrush}"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>
+            <!-- Стиль для обычных кнопок -->
+            <Style x:Key="TriggerButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Padding" Value="15,8"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource AccentLightBrush}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </UserControl.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
-        <StackPanel Margin="10">
-            <TextBlock Text="Триггеры в WPF" 
+            <StackPanel Margin="10">
+                <TextBlock Text="{res:LocalizationExtension Key=Triggers_Title}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource DangerBrush}"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- Property Triggers -->
-                <Border Grid.Column="0" Style="{StaticResource DemoBorder}">
-                    <StackPanel>
-                        <TextBlock Text="Property Triggers" 
+                    <!-- Property Triggers -->
+                    <Border Grid.Column="0" Style="{StaticResource DemoBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_PropertyTriggers}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource AccentBrush}"/>
 
-                        <TextBlock Text="Триггеры свойств реагируют на изменения свойств элемента" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_PropertyTriggersDesc}" 
                                    Style="{StaticResource DescriptionStyle}" 
                                    Margin="0,0,0,10"/>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="Наведи мышь" 
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="{res:LocalizationExtension Key=Triggers_HoverButton}" 
                                     Style="{StaticResource PropertyTriggerButtonStyle}" 
                                     Margin="5"/>
-                            <Button Content="Нажми меня" 
+                                <Button Content="{res:LocalizationExtension Key=Triggers_PressButton}" 
                                     Style="{StaticResource PropertyTriggerButtonStyle}" 
                                     Margin="5"/>
-                        </StackPanel>
+                            </StackPanel>
 
-                        <TextBlock Text="Изменения при наведении и нажатии" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_PropertyTriggerResult}" 
                                    Style="{StaticResource DescriptionStyle}" 
                                    Margin="0,10"/>
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                    </Border>
 
-                <!-- Data Triggers -->
-                <Border Grid.Column="1" Style="{StaticResource DemoBorder}">
-                    <StackPanel>
-                        <TextBlock Text="Data Triggers" 
+                    <!-- Data Triggers -->
+                    <Border Grid.Column="1" Style="{StaticResource DemoBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_DataTriggers}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <TextBlock Text="Триггеры данных реагируют на изменения в данных" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_DataTriggersDesc}" 
                                    Style="{StaticResource DescriptionStyle}" 
                                    Margin="0,0,0,10"/>
 
-                        <Border Style="{StaticResource DataTriggerBorderStyle}" Margin="5">
-                            <StackPanel>
-                                <TextBlock Text="Special Border" 
+                            <Border Style="{StaticResource DataTriggerBorderStyle}" Margin="5">
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=Triggers_SpecialBorder}" 
                                            FontSize="16" FontWeight="Bold" 
                                            HorizontalAlignment="Center" 
                                            Margin="10"
                                            Foreground="{StaticResource TextBrush}"/>
-                                <TextBlock Text="{Binding IsSpecial}" 
+                                    <TextBlock Text="{Binding IsSpecial}" 
                                            HorizontalAlignment="Center" 
                                            Margin="5"
                                            Foreground="{StaticResource TextBrush}"/>
-                            </StackPanel>
-                        </Border>
+                                </StackPanel>
+                            </Border>
 
-                        <Button Content="Toggle Special" 
+                            <Button Content="{res:LocalizationExtension Key=Triggers_ToggleSpecialButton}" 
                                 Command="{Binding ToggleSpecialCommand}" 
                                 Style="{StaticResource TriggerButtonStyle}"
                                 Margin="5"/>
 
-                        <TextBlock Text="* Меняет цвет при IsSpecial = True" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_DataTriggerResult}" 
                                    Style="{StaticResource DescriptionStyle}" 
                                    Margin="0,5"/>
-                    </StackPanel>
-                </Border>
-            </Grid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
 
-            <Grid Margin="0,10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid Margin="0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!-- Multi Triggers -->
-                <Border Grid.Column="0" Style="{StaticResource DemoBorder}">
-                    <StackPanel>
-                        <TextBlock Text="Multi Triggers" 
+                    <!-- Multi Triggers -->
+                    <Border Grid.Column="0" Style="{StaticResource DemoBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_MultiTriggers}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource WarningBrush}"/>
 
-                        <TextBlock Text="Множественные условия" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_MultiTriggersDesc}" 
                                    Style="{StaticResource DescriptionStyle}" 
                                    Margin="0,0,0,10"/>
 
-                        <TextBlock Text="Поле ввода:" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_InputField}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
-                        <TextBox x:Name="MultiTriggerTextBox" 
+                            <TextBox x:Name="MultiTriggerTextBox" 
                                  Style="{StaticResource MultiTriggerTextBoxStyle}"
                                  Text="" Margin="0,0,0,10"/>
 
-                        <TextBlock Text="* Оранжевая подсветка при фокусе и пустом тексте" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_MultiTriggerResult}" 
                                    Style="{StaticResource DescriptionStyle}" 
                                    Margin="0,5"/>
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                    </Border>
 
-                <!-- Multi Data Triggers + Event Triggers -->
-                <Border Grid.Column="1" Style="{StaticResource DemoBorder}">
-                    <StackPanel>
-                        <TextBlock Text="Data + Event Triggers" 
+                    <!-- Multi Data Triggers + Event Triggers -->
+                    <Border Grid.Column="1" Style="{StaticResource DemoBorder}">
+                        <StackPanel>
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_DataEventTriggers}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource DangerBrush}"/>
 
-                        <TextBlock Text="Прогресс:" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_Progress}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
-                        <ProgressBar Value="{Binding Progress}" 
+                            <ProgressBar Value="{Binding Progress}" 
                                      Style="{StaticResource ProgressBarStyle}"
                                      Minimum="0" Maximum="100" Margin="0,0,0,10"/>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button Content="-" 
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Content="-" 
                                     Command="{Binding DecreaseProgressCommand}"
                                     Style="{StaticResource PropertyTriggerButtonStyle}"
                                     Width="40" Height="40" FontSize="20" Margin="5"/>
-                            <Border Background="{StaticResource PanelBrush}"
+                                <Border Background="{StaticResource PanelBrush}"
                                     Width="60" Height="40"
                                     CornerRadius="5"
                                     BorderBrush="{StaticResource AccentBrush}"
                                     BorderThickness="1">
-                                <TextBlock Text="{Binding Progress}" 
+                                    <TextBlock Text="{Binding Progress}" 
                                            FontSize="24" FontWeight="Bold" 
                                            Foreground="{StaticResource TextBrush}"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"/>
-                            </Border>
-                            <Button Content="+" 
+                                </Border>
+                                <Button Content="+" 
                                     Command="{Binding IncreaseProgressCommand}"
                                     Style="{StaticResource PropertyTriggerButtonStyle}"
                                     Width="40" Height="40" FontSize="20" Margin="5"/>
-                        </StackPanel>
+                            </StackPanel>
 
-                        <!-- Event Trigger -->
-                        <Border Margin="0,10" Padding="10" 
+                            <!-- Event Trigger -->
+                            <Border Margin="0,10" Padding="10" 
                                 Background="{StaticResource PanelBrush}"
                                 CornerRadius="5">
-                            <StackPanel>
-                                <TextBlock Text="Event Trigger (анимация)" 
+                                <StackPanel>
+                                    <TextBlock Text="{res:LocalizationExtension Key=Triggers_EventTriggerTitle}" 
                                            FontWeight="SemiBold" 
                                            Foreground="{StaticResource AccentBrush}"
                                            Margin="0,0,0,10"/>
 
-                                <Button Content="Нажми для анимации" 
+                                    <Button Content="{res:LocalizationExtension Key=Triggers_AnimationButton}" 
                                         Name="AnimationButton" 
                                         Padding="15,8"
                                         Background="{StaticResource WarningBrush}"
                                         Foreground="White"
                                         FontWeight="Bold">
-                                    <Button.Triggers>
-                                        <EventTrigger RoutedEvent="Button.Click">
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <DoubleAnimation 
+                                        <Button.Triggers>
+                                            <EventTrigger RoutedEvent="Button.Click">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation 
                                                         Storyboard.TargetProperty="Opacity"
                                                         From="1" To="0.5" Duration="0:0:0.2"
                                                         AutoReverse="True"/>
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </EventTrigger>
-                                    </Button.Triggers>
-                                </Button>
-                            </StackPanel>
-                        </Border>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
 
-                        <TextBlock Text="* Красный при 10, зеленый по умолчанию, желтый при 100%" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_ProgressBarResult}" 
                                    Style="{StaticResource DescriptionStyle}"/>
-                    </StackPanel>
-                </Border>
-            </Grid>
+                        </StackPanel>
+                    </Border>
+                </Grid>
 
-            <!-- Event Triggers отдельно -->
-            <Border Style="{StaticResource DemoBorder}" 
+                <!-- Event Triggers отдельно -->
+                <Border Style="{StaticResource DemoBorder}" 
                     Background="{StaticResource PanelBrush}">
-                <StackPanel>
-                    <TextBlock Text="Event Triggers (примеры)" 
+                    <StackPanel>
+                        <TextBlock Text="{res:LocalizationExtension Key=Triggers_EventTriggersTitle}" 
                                Style="{StaticResource SubHeaderStyle}"
                                Foreground="{StaticResource WarningBrush}"/>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="0" Margin="5">
-                            <TextBlock Text="При загрузке" 
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <TextBlock Text="{res:LocalizationExtension Key=Triggers_OnLoad}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
-                            <Border Name="LoadBorder" 
+                                <Border Name="LoadBorder" 
                                     Width="100" Height="50" 
                                     Background="{StaticResource AccentBrush}"
                                     CornerRadius="5"
                                     Margin="0,5">
-                                <Border.Triggers>
-                                    <EventTrigger RoutedEvent="Border.Loaded">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
+                                    <Border.Triggers>
+                                        <EventTrigger RoutedEvent="Border.Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation 
                                                     Storyboard.TargetProperty="Opacity"
                                                     From="0" To="1" Duration="0:0:1"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Border.Triggers>
-                                <TextBlock Text="Fade In" 
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Border.Triggers>
+                                    <TextBlock Text="{res:LocalizationExtension Key=Triggers_FadeIn}" 
                                           Foreground="White"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center"/>
-                            </Border>
-                        </StackPanel>
+                                </Border>
+                            </StackPanel>
 
-                        <StackPanel Grid.Column="1" Margin="5">
-                            <TextBlock Text="При наведении" 
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <TextBlock Text="{res:LocalizationExtension Key=Triggers_OnHover}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
-                            <Border Name="HoverBorder" 
+                                <Border Name="HoverBorder" 
                                     Width="100" Height="50" 
                                     Background="{StaticResource DangerBrush}"
                                     CornerRadius="5"
                                     Margin="0,5">
-                                <Border.Triggers>
-                                    <EventTrigger RoutedEvent="Border.MouseEnter">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
+                                    <Border.Triggers>
+                                        <EventTrigger RoutedEvent="Border.MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation 
                                                     Storyboard.TargetProperty="Width"
                                                     To="150" Duration="0:0:0.3"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                    <EventTrigger RoutedEvent="Border.MouseLeave">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation 
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="Border.MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation 
                                                     Storyboard.TargetProperty="Width"
                                                     To="100" Duration="0:0:0.3"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </Border.Triggers>
-                                <TextBlock Text="Hover" 
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Border.Triggers>
+                                    <TextBlock Text="{res:LocalizationExtension Key=Triggers_Hover}" 
                                           Foreground="White"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center"/>
-                            </Border>
-                        </StackPanel>
-                    </Grid>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
 
-                    <Border Background="{StaticResource PanelLightBrush}" 
+                        <Border Background="{StaticResource PanelLightBrush}" 
                             Padding="10" 
                             Margin="0,10"
                             CornerRadius="5">
-                        <TextBlock Text="Описание: PropertyTrigger - на изменения свойств, DataTrigger - на данные, EventTrigger - на события" 
+                            <TextBlock Text="{res:LocalizationExtension Key=Triggers_Description}" 
                                    TextWrapping="Wrap" 
                                    Foreground="{StaticResource TextBrush}"
                                    Style="{StaticResource DescriptionStyle}"/>
-                    </Border>
-                </StackPanel>
-            </Border>
-        </StackPanel>
-    </ScrollViewer>
-</UserControl>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </UserControl>
