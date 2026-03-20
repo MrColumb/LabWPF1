@@ -1,22 +1,30 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using WPF_MVVM_Demo.Models;
+﻿using WPF_MVVM_Demo.Models;
 
 namespace WPF_MVVM_Demo.ViewModels
 {
-    public partial class TwoWayBindingViewModel : ObservableObject
+    public class TwoWayBindingViewModel : ViewModelBase
     {
-        [ObservableProperty]
         private Person _person;
-
-        [ObservableProperty]
         private string _inputText;
-
-        [ObservableProperty]
         private bool _isChecked;
 
-        // Вычисляемое свойство
-        public int TextLength => InputText?.Length ?? 0;
+        public Person Person
+        {
+            get => _person;
+            set => SetProperty(ref _person, value);
+        }
+
+        public string InputText
+        {
+            get => _inputText;
+            set => SetProperty(ref _inputText, value);
+        }
+
+        public bool IsChecked
+        {
+            get => _isChecked;
+            set => SetProperty(ref _isChecked, value);
+        }
 
         public TwoWayBindingViewModel()
         {
@@ -31,25 +39,6 @@ namespace WPF_MVVM_Demo.ViewModels
 
             InputText = "Начальный текст";
             IsChecked = true;
-        }
-
-        // Partial метод вызывается автоматически при изменении InputText
-        partial void OnInputTextChanged(string value)
-        {
-            // Уведомляем об изменении TextLength
-            OnPropertyChanged(nameof(TextLength));
-        }
-
-        [RelayCommand]
-        private void ClearInput()
-        {
-            InputText = string.Empty;
-        }
-
-        [RelayCommand]
-        private void ToggleCheck()
-        {
-            IsChecked = !IsChecked;
         }
     }
 }

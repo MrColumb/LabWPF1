@@ -1,11 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-
-namespace WPF_MVVM_Demo.ViewModels
+﻿namespace WPF_MVVM_Demo.ViewModels
 {
-    public partial class MainViewModel : ObservableObject  // Наследуемся от ObservableObject
+    public class MainViewModel : ViewModelBase
     {
-        [ObservableProperty]  // Атрибут для авто-генерации свойства
         private object _selectedViewModel;
 
         public DefaultBindingViewModel DefaultBindingVM { get; }
@@ -13,6 +9,12 @@ namespace WPF_MVVM_Demo.ViewModels
         public OneTimeBindingViewModel OneTimeBindingVM { get; }
         public OneWayBindingViewModel OneWayBindingVM { get; }
         public TriggersViewModel TriggersVM { get; }
+
+        public object SelectedViewModel
+        {
+            get => _selectedViewModel;
+            set => SetProperty(ref _selectedViewModel, value);
+        }
 
         public MainViewModel()
         {
@@ -23,12 +25,6 @@ namespace WPF_MVVM_Demo.ViewModels
             TriggersVM = new TriggersViewModel();
 
             SelectedViewModel = DefaultBindingVM;
-        }
-
-        [RelayCommand]  // Автоматически создает команду SelectTabCommand
-        private void SelectTab(object viewModel)
-        {
-            SelectedViewModel = viewModel;
         }
     }
 }
