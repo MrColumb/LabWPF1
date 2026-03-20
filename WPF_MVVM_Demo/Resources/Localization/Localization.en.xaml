@@ -1,0 +1,163 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Main Window -->
+    <system:String x:Key="MainWindowTitle">Lab Work #1: WPF Binding Types</system:String>
+    <system:String x:Key="MainWindowSubtitle">Demonstration of various binding types and triggers</system:String>
+
+    <!-- Tabs -->
+    <system:String x:Key="TabDefaultBinding">Default Binding</system:String>
+    <system:String x:Key="TabTwoWayBinding">Two-Way Binding</system:String>
+    <system:String x:Key="TabOneTimeBinding">One-Time Binding</system:String>
+    <system:String x:Key="TabOneWayBinding">One-Way Bindings</system:String>
+    <system:String x:Key="TabTriggers">Triggers</system:String>
+
+    <!-- Language -->
+    <system:String x:Key="LanguageSelector">Language</system:String>
+    <system:String x:Key="LanguageRussian">Russian</system:String>
+    <system:String x:Key="LanguageEnglish">English</system:String>
+
+    <!-- DefaultBindingView -->
+    <system:String x:Key="DefaultBindingTitle">Default Binding</system:String>
+    <system:String x:Key="DirectBindingToUI">Direct binding to UI elements</system:String>
+    <system:String x:Key="TextBoxLabel">Text box:</system:String>
+    <system:String x:Key="TextFromTextBox">Text from TextBox:</system:String>
+    <system:String x:Key="DirectBindingDescription">When you change text in the top field, the bottom one updates automatically</system:String>
+    <system:String x:Key="BindingViaViewModel">Binding via ViewModel</system:String>
+    <system:String x:Key="FirstName">First name:</system:String>
+    <system:String x:Key="LastName">Last name:</system:String>
+    <system:String x:Key="Age">Age:</system:String>
+    <system:String x:Key="Email">Email:</system:String>
+    <system:String x:Key="Student">Student</system:String>
+    <system:String x:Key="FullName">Full name:</system:String>
+    <system:String x:Key="AutoUpdateDescription">* Updates automatically when first or last name changes</system:String>
+    <system:String x:Key="DefaultBindingDescription">Default binding automatically selects the mode depending on the situation:</system:String>
+    <system:String x:Key="ReadOnlyProperties">✅ For read-only properties:</system:String>
+    <system:String x:Key="UsesOneWay">• Uses OneWay</system:String>
+    <system:String x:Key="EditableProperties">🔄 For editable properties:</system:String>
+    <system:String x:Key="UsesTwoWay">• Uses TwoWay</system:String>
+
+    <!-- TwoWayBindingView -->
+    <system:String x:Key="TwoWayBindingTitle">Two-Way Binding</system:String>
+    <system:String x:Key="TextBoxExample">TextBox Example (TwoWay)</system:String>
+    <system:String x:Key="EnterText">Enter text:</system:String>
+    <system:String x:Key="TextFromViewModel">Text from ViewModel:</system:String>
+    <system:String x:Key="TextLength">Text length:</system:String>
+    <system:String x:Key="CheckBoxExample">CheckBox Example (TwoWay)</system:String>
+    <system:String x:Key="Active">Active</system:String>
+    <system:String x:Key="StateInViewModel">State in ViewModel:</system:String>
+    <system:String x:Key="EditPerson">Edit Person (TwoWay)</system:String>
+    <system:String x:Key="CurrentPersonValues">Current Person values:</system:String>
+    <system:String x:Key="StudentStatus">Student:</system:String>
+    <system:String x:Key="RealTimeUpdate">* Updates in real time</system:String>
+    <system:String x:Key="TwoWayDescription">Two-way binding provides data synchronization in both directions:</system:String>
+    <system:String x:Key="UIToViewModel">⬇️ UI → ViewModel</system:String>
+    <system:String x:Key="ViewModelToUI">⬆️ ViewModel → UI</system:String>
+    <system:String x:Key="Advantages">✅ Advantages:</system:String>
+    <system:String x:Key="Features">⚠️ Features:</system:String>
+    <system:String x:Key="AutoSync">• Automatic synchronization</system:String>
+    <system:String x:Key="NoCodeNeeded">• No need to write update code</system:String>
+    <system:String x:Key="DataAlwaysActual">• Data is always up to date</system:String>
+    <system:String x:Key="UpdateSourceTrigger">• UpdateSourceTrigger affects update timing</system:String>
+    <system:String x:Key="CanDisable">• Can be disabled for optimization</system:String>
+    <system:String x:Key="RequiresINPC">• Requires INotifyPropertyChanged</system:String>
+
+    <!-- OneTimeBindingView -->
+    <system:String x:Key="OneTimeBindingTitle">One-Time Binding</system:String>
+    <system:String x:Key="OneTimeBindingExample">OneTime Binding (Frozen Data)</system:String>
+    <system:String x:Key="CurrentTimeOneTime">⏰ Current time (OneTime):</system:String>
+    <system:String x:Key="ValueWontChange">* This value will NOT change</system:String>
+    <system:String x:Key="StaticTextOneTime">📝 Static text (OneTime):</system:String>
+    <system:String x:Key="UpdateTimeButton">🔄 Update time in ViewModel</system:String>
+    <system:String x:Key="Important">💡 Important:</system:String>
+    <system:String x:Key="OneWayForComparison">OneWay Binding (for comparison)</system:String>
+    <system:String x:Key="CurrentTimeOneWay">⏰ Current time (OneWay):</system:String>
+    <system:String x:Key="ValueUpdates">* This value UPDATES</system:String>
+    <system:String x:Key="StaticTextOneWay">📝 Static text (OneWay):</system:String>
+    <system:String x:Key="OneWayFeatures">✅ OneWay Features:</system:String>
+    <system:String x:Key="TracksChanges">• Tracks changes in ViewModel</system:String>
+    <system:String x:Key="AutoUpdate">• Updates automatically</system:String>
+    <system:String x:Key="DynamicDisplay">• Dynamic display</system:String>
+    <system:String x:Key="PersonDataOneTime">👤 Person Data (OneTime)</system:String>
+    <system:String x:Key="OneTimeWarning">⚠️ These values will NOT change when data is updated</system:String>
+    <system:String x:Key="ChangeDataInViewModel">✏️ Change data in ViewModel</system:String>
+    <system:String x:Key="NewName">New name:</system:String>
+    <system:String x:Key="ChangeNameButton">🔄 Change name in Person</system:String>
+    <system:String x:Key="Result">📋 Result:</system:String>
+    <system:String x:Key="OneTimeNotChange">• Name in left column (OneTime) will NOT change</system:String>
+    <system:String x:Key="OneTimeDescriptionTitle">📖 One-Time Binding Description</system:String>
+    <system:String x:Key="OneTimeDescription">One-time binding sets the value once when the binding is created and does not track subsequent changes. This is efficient for static data or when you need to show a snapshot of data at load time.</system:String>
+    <system:String x:Key="OneTimeAdvantages">✅ Advantages:</system:String>
+    <system:String x:Key="OneTimeDisadvantages">⚠️ Disadvantages:</system:String>
+    <system:String x:Key="MinimalLoad">• Minimal load</system:String>
+    <system:String x:Key="NoTracking">• Doesn't track changes</system:String>
+    <system:String x:Key="FastLoad">• Fast loading</system:String>
+    <system:String x:Key="DoesNotUpdate">• Doesn't update</system:String>
+    <system:String x:Key="OnlyInitial">• Only initial value</system:String>
+    <system:String x:Key="NotForDynamic">• Not for dynamic data</system:String>
+
+    <!-- OneWayBindingView -->
+    <system:String x:Key="OneWayBindingTitle">One-Way Bindings</system:String>
+    <system:String x:Key="OneWaySourceToTarget">OneWay (ViewModel → UI)</system:String>
+    <system:String x:Key="DataFlowSourceToTarget">⬇️ Data flow: source → target</system:String>
+    <system:String x:Key="CounterInViewModel">🔢 Counter in ViewModel:</system:String>
+    <system:String x:Key="IncrementCounter">➕ Increment counter</system:String>
+    <system:String x:Key="ReadOnlyText">📝 Read-only text:</system:String>
+    <system:String x:Key="OneWayNote">✅ Changes in ViewModel update the UI, but not vice versa</system:String>
+    <system:String x:Key="OneWayToSource">OneWayToSource (UI → ViewModel)</system:String>
+    <system:String x:Key="DataFlowTargetToSource">⬆️ Data flow: target → source</system:String>
+    <system:String x:Key="EnterTextUpdatesVM">✏️ Enter text (updates ViewModel):</system:String>
+    <system:String x:Key="CurrentValueInVM">📊 Current value in ViewModel:</system:String>
+    <system:String x:Key="OneWayToSourceNote">⚠️ Changes in the UI update ViewModel, but changes in ViewModel do NOT update the UI</system:String>
+    <system:String x:Key="PersonDataOneWay">👤 Person Data (OneWay)</system:String>
+    <system:String x:Key="PersonControl">🎮 Person Control in ViewModel</system:String>
+    <system:String x:Key="ChangeName">🔄 Change name to 'New name'</system:String>
+    <system:String x:Key="IncreaseAge">⬆️ Increase age</system:String>
+    <system:String x:Key="OneWayResult">📋 Result:</system:String>
+    <system:String x:Key="ChangesOnLeft">• Changes will appear in the left column</system:String>
+    <system:String x:Key="AutoUpdateUI">• OneWay binding will automatically update the UI</system:String>
+    <system:String x:Key="UINoDirectChange">• UI cannot directly change these values</system:String>
+    <system:String x:Key="OneWayDescriptionTitle">📖 One-Way Bindings Description</system:String>
+    <system:String x:Key="OneWayType">✅ OneWay (ViewModel → UI)</system:String>
+    <system:String x:Key="OneWayToSourceType">⚠️ OneWayToSource (UI → ViewModel)</system:String>
+    <system:String x:Key="OneWayDesc1">• Data flows only from source to target</system:String>
+    <system:String x:Key="OneWayDesc2">• Changes in ViewModel update UI</system:String>
+    <system:String x:Key="OneWayDesc3">• Changes in UI do not affect ViewModel</system:String>
+    <system:String x:Key="OneWayDesc4">• Ideal for displaying data</system:String>
+    <system:String x:Key="OneWayToSourceDesc1">• Data flows from target to source</system:String>
+    <system:String x:Key="OneWayToSourceDesc2">• Changes in UI update ViewModel</system:String>
+    <system:String x:Key="OneWayToSourceDesc3">• Changes in ViewModel are not visible in UI</system:String>
+    <system:String x:Key="OneWayToSourceDesc4">• Useful for collecting data</system:String>
+
+    <!-- TriggersView -->
+    <system:String x:Key="TriggersTitle">WPF Triggers</system:String>
+    <system:String x:Key="PropertyTriggers">Property Triggers</system:String>
+    <system:String x:Key="PropertyTriggersDesc">Property triggers react to element property changes</system:String>
+    <system:String x:Key="HoverMe">Hover me</system:String>
+    <system:String x:Key="PressMe">Press me</system:String>
+    <system:String x:Key="HoverPressChanges">Changes on hover and press</system:String>
+    <system:String x:Key="DataTriggers">Data Triggers</system:String>
+    <system:String x:Key="DataTriggersDesc">Data triggers react to data changes</system:String>
+    <system:String x:Key="SpecialBorder">Special Border</system:String>
+    <system:String x:Key="ToggleSpecial">Toggle Special</system:String>
+    <system:String x:Key="DataTriggerNote">* Changes color when IsSpecial = True</system:String>
+    <system:String x:Key="MultiTriggers">Multi Triggers</system:String>
+    <system:String x:Key="MultiTriggersDesc">Multiple conditions</system:String>
+    <system:String x:Key="InputField">Input field:</system:String>
+    <system:String x:Key="MultiTriggerNote">* Orange highlight when focused and empty</system:String>
+    <system:String x:Key="DataEventTriggers">Data + Event Triggers</system:String>
+    <system:String x:Key="Progress">Progress:</system:String>
+    <system:String x:Key="EventTriggerAnimation">Event Trigger (animation)</system:String>
+    <system:String x:Key="ClickForAnimation">Click for animation</system:String>
+    <system:String x:Key="ProgressColorsNote">* Red at 10%, green by default, yellow at 100%</system:String>
+    <system:String x:Key="EventTriggersExamples">Event Triggers (examples)</system:String>
+    <system:String x:Key="OnLoad">On load</system:String>
+    <system:String x:Key="OnHover">On hover</system:String>
+    <system:String x:Key="TriggersDescription">Description: PropertyTrigger - for property changes, DataTrigger - for data changes, EventTrigger - for events</system:String>
+
+    <!-- Messages -->
+    <system:String x:Key="MessageBoxTitle">Information</system:String>
+    <system:String x:Key="LanguageChangedMessage">Interface language changed to {0}</system:String>
+
+</ResourceDictionary>

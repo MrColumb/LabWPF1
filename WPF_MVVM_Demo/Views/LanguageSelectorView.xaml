@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WPF_MVVM_Demo.Views.LanguageSelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="200"
+             Background="Transparent">
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,15,0">
+        <TextBlock Text="{DynamicResource LanguageSelector}" 
+                   VerticalAlignment="Center"
+                   Foreground="{StaticResource TextBrush}"
+                   Margin="0,0,10,0"/>
+        <ComboBox x:Name="LanguageComboBox" 
+                  Width="120" 
+                  Height="28"
+                  SelectionChanged="ComboBox_SelectionChanged"
+                  Background="{StaticResource PanelLightBrush}"
+                  Foreground="{StaticResource TextBrush}">
+            <ComboBoxItem Tag="ru" Content="{DynamicResource LanguageRussian}"/>
+            <ComboBoxItem Tag="en" Content="{DynamicResource LanguageEnglish}"/>
+        </ComboBox>
+    </StackPanel>
+</UserControl>

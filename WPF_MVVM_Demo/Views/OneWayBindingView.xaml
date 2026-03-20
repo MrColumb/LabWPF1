@@ -46,12 +46,26 @@
             <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
+
+        <Style TargetType="TextBlock" x:Key="SubHeaderStyle">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="SectionHeaderStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
     </UserControl.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
         <StackPanel Margin="5">
-            <TextBlock Text="Односторонние привязки (OneWay)" 
+            <TextBlock Text="{DynamicResource OneWayBindingTitle}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource AccentBrush}"/>
 
@@ -64,13 +78,13 @@
                 <!-- OneWay от источника к цели -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="OneWay (ViewModel → UI)" 
+                        <TextBlock Text="{DynamicResource OneWaySourceToTarget}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
                         <Border Style="{StaticResource DirectionArrowStyle}"
                                 Background="{StaticResource SuccessBrush}">
-                            <TextBlock Text="⬇️ Поток данных: источник → цель" 
+                            <TextBlock Text="{DynamicResource DataFlowSourceToTarget}" 
                                       Foreground="White"
                                       FontWeight="Bold"
                                       HorizontalAlignment="Center"/>
@@ -81,7 +95,7 @@
                                 CornerRadius="5"
                                 Margin="0,10">
                             <StackPanel>
-                                <TextBlock Text="🔢 Счетчик в ViewModel:" 
+                                <TextBlock Text="{DynamicResource CounterInViewModel}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"
                                           HorizontalAlignment="Center"/>
@@ -94,7 +108,7 @@
                             </StackPanel>
                         </Border>
 
-                        <Button Content="➕ Увеличить счетчик" 
+                        <Button Content="{DynamicResource IncrementCounter}" 
                                 Command="{Binding IncrementCounterCommand}"
                                 Style="{StaticResource OneWayButtonStyle}"
                                 Background="{StaticResource SuccessBrush}"
@@ -106,7 +120,7 @@
                                 CornerRadius="5"
                                 Margin="0,10">
                             <StackPanel>
-                                <TextBlock Text="📝 Текст только для чтения:" 
+                                <TextBlock Text="{DynamicResource ReadOnlyText}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"/>
                                 <TextBox Text="{Binding ReadOnlyText, Mode=OneWay}" 
@@ -122,7 +136,7 @@
                                 Padding="10" 
                                 Margin="0,5"
                                 CornerRadius="5">
-                            <TextBlock Text="✅ Изменения в ViewModel обновляют интерфейс, но не наоборот" 
+                            <TextBlock Text="{DynamicResource OneWayNote}" 
                                       Style="{StaticResource DescriptionStyle}"
                                       Foreground="{StaticResource SuccessBrush}"/>
                         </Border>
@@ -132,13 +146,13 @@
                 <!-- OneWayToSource -->
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="OneWayToSource (UI → ViewModel)" 
+                        <TextBlock Text="{DynamicResource OneWayToSource}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource DangerBrush}"/>
 
                         <Border Style="{StaticResource DirectionArrowStyle}"
                                 Background="{StaticResource DangerBrush}">
-                            <TextBlock Text="⬆️ Поток данных: цель → источник" 
+                            <TextBlock Text="{DynamicResource DataFlowTargetToSource}" 
                                       Foreground="White"
                                       FontWeight="Bold"
                                       HorizontalAlignment="Center"/>
@@ -149,7 +163,7 @@
                                 CornerRadius="5"
                                 Margin="0,10">
                             <StackPanel>
-                                <TextBlock Text="✏️ Введи текст (обновляет ViewModel):" 
+                                <TextBlock Text="{DynamicResource EnterTextUpdatesVM}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"/>
                                 <TextBox Text="{Binding ReadOnlyText, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" 
@@ -165,7 +179,7 @@
                                 CornerRadius="5"
                                 Margin="0,5">
                             <StackPanel>
-                                <TextBlock Text="📊 Текущее значение в ViewModel:" 
+                                <TextBlock Text="{DynamicResource CurrentValueInVM}" 
                                           Foreground="{StaticResource TextBrush}"
                                           FontWeight="Bold"/>
                                 <TextBlock Text="{Binding ReadOnlyText}" 
@@ -181,7 +195,7 @@
                                 Padding="10" 
                                 Margin="0,5"
                                 CornerRadius="5">
-                            <TextBlock Text="⚠️ Изменения в интерфейсе обновляют ViewModel, но изменения в ViewModel НЕ обновляют интерфейс" 
+                            <TextBlock Text="{DynamicResource OneWayToSourceNote}" 
                                       Style="{StaticResource DescriptionStyle}"
                                       Foreground="{StaticResource DangerBrush}"
                                       TextWrapping="Wrap"/>
@@ -199,7 +213,7 @@
                 <!-- Данные Person с OneWay -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="👤 Данные Person (OneWay)" 
+                        <TextBlock Text="{DynamicResource PersonDataOneWay}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
@@ -215,20 +229,20 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource FirstName}" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Person.FirstName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Фамилия:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource LastName}" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Person.LastName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Возраст:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource Age}" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
                             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Person.Age}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Полное имя:" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource FullName}" FontWeight="Bold" Foreground="{StaticResource TextBrush}" Margin="5"/>
                             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Person.FullName}" Margin="10,5" Foreground="{StaticResource AccentLightBrush}" FontWeight="Bold"/>
                         </Grid>
 
-                        <TextBlock Text="* Обновляется при изменении в ViewModel" 
+                        <TextBlock Text="{DynamicResource AutoUpdateUI}" 
                                    Style="{StaticResource DescriptionStyle}"
                                    Margin="0,5"/>
                     </StackPanel>
@@ -238,18 +252,18 @@
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}" 
                         Background="{StaticResource PanelBrush}">
                     <StackPanel>
-                        <TextBlock Text="🎮 Управление Person в ViewModel" 
+                        <TextBlock Text="{DynamicResource PersonControl}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource WarningBrush}"/>
 
-                        <Button Content="🔄 Изменить имя на 'Новое имя'" 
+                        <Button Content="{DynamicResource ChangeName}" 
                                 Command="{Binding UpdatePersonCommand}"
                                 Style="{StaticResource OneWayButtonStyle}"
                                 Background="{StaticResource WarningBrush}"
                                 Margin="0,5" 
                                 Padding="15,8"/>
 
-                        <Button Content="⬆️ Увеличить возраст" 
+                        <Button Content="{DynamicResource IncreaseAge}" 
                                 Command="{Binding UpdatePersonCommand}"
                                 CommandParameter="age"
                                 Style="{StaticResource OneWayButtonStyle}"
@@ -262,14 +276,14 @@
                                 Margin="0,10"
                                 CornerRadius="5">
                             <StackPanel>
-                                <TextBlock Text="📋 Результат:" 
+                                <TextBlock Text="{DynamicResource OneWayResult}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource TextBrush}"/>
-                                <TextBlock Text="• Изменения отобразятся в левой колонке" 
+                                <TextBlock Text="{DynamicResource ChangesOnLeft}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                                <TextBlock Text="• OneWay привязка автоматически обновит UI" 
+                                <TextBlock Text="{DynamicResource AutoUpdateUI}" 
                                           Style="{StaticResource DescriptionStyle}"/>
-                                <TextBlock Text="• UI не может напрямую изменить эти значения" 
+                                <TextBlock Text="{DynamicResource UINoDirectChange}" 
                                           Style="{StaticResource DescriptionStyle}"/>
                             </StackPanel>
                         </Border>
@@ -284,7 +298,7 @@
                     BorderBrush="{StaticResource AccentBrush}"
                     BorderThickness="2">
                 <StackPanel>
-                    <TextBlock Text="📖 Описание односторонних привязок" 
+                    <TextBlock Text="{DynamicResource OneWayDescriptionTitle}" 
                               FontSize="16" 
                               FontWeight="Bold"
                               Foreground="{StaticResource AccentBrush}"
@@ -297,30 +311,30 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="5">
-                            <TextBlock Text="✅ OneWay (ViewModel → UI)" 
+                            <TextBlock Text="{DynamicResource OneWayType}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
-                            <TextBlock Text="• Данные текут только от источника к цели" 
+                            <TextBlock Text="{DynamicResource OneWayDesc1}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Изменения в ViewModel обновляют UI" 
+                            <TextBlock Text="{DynamicResource OneWayDesc2}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Изменения в UI не влияют на ViewModel" 
+                            <TextBlock Text="{DynamicResource OneWayDesc3}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Идеально для отображения данных" 
+                            <TextBlock Text="{DynamicResource OneWayDesc4}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Margin="5">
-                            <TextBlock Text="⚠️ OneWayToSource (UI → ViewModel)" 
+                            <TextBlock Text="{DynamicResource OneWayToSourceType}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource DangerBrush}"/>
-                            <TextBlock Text="• Данные текут от цели к источнику" 
+                            <TextBlock Text="{DynamicResource OneWayToSourceDesc1}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Изменения в UI обновляют ViewModel" 
+                            <TextBlock Text="{DynamicResource OneWayToSourceDesc2}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Изменения в ViewModel не видны в UI" 
+                            <TextBlock Text="{DynamicResource OneWayToSourceDesc3}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Полезно для сбора данных" 
+                            <TextBlock Text="{DynamicResource OneWayToSourceDesc4}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                     </Grid>

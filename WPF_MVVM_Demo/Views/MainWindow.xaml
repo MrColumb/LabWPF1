@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WPF_MVVM_Demo.ViewModels"
         xmlns:views="clr-namespace:WPF_MVVM_Demo.Views"
-        Title="Демонстрация привязок WPF" 
+        Title="{DynamicResource MainWindowTitle}" 
         Height="800" 
         Width="1100"
         WindowStartupLocation="CenterScreen"
@@ -20,24 +20,31 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Заголовок с градиентом -->
+        <!-- Заголовок с градиентом и выбором языка -->
         <Border Grid.Row="0"
                 Background="{StaticResource PanelBrush}"
                 CornerRadius="8"
                 Padding="20"
                 Margin="0,0,0,15">
-            <StackPanel>
-                <TextBlock Text="Лабораторная работа №1: Виды привязок в WPF" 
-                          FontSize="24" 
-                          FontWeight="Bold" 
-                          Foreground="{StaticResource AccentBrush}"
-                          HorizontalAlignment="Center"/>
-                <TextBlock Text="Демонстрация различных типов привязок и триггеров"
-                          FontSize="14"
-                          Foreground="{StaticResource TextBrush}"
-                          HorizontalAlignment="Center"
-                          Margin="0,5,0,0"/>
-            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="{DynamicResource MainWindowTitle}" 
+                              FontSize="24" 
+                              FontWeight="Bold" 
+                              Foreground="{StaticResource AccentBrush}"/>
+                    <TextBlock Text="{DynamicResource MainWindowSubtitle}"
+                              FontSize="14"
+                              Foreground="{StaticResource TextBrush}"
+                              Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <views:LanguageSelectorView Grid.Column="1" VerticalAlignment="Center"/>
+            </Grid>
         </Border>
 
         <!-- TabControl -->
@@ -46,31 +53,31 @@
                     Background="Transparent"
                     BorderThickness="0">
 
-            <TabItem Header="Привязка по умолчанию">
+            <TabItem Header="{DynamicResource TabDefaultBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:DefaultBindingView DataContext="{Binding DefaultBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Двухсторонняя привязка">
+            <TabItem Header="{DynamicResource TabTwoWayBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:TwoWayBindingView DataContext="{Binding TwoWayBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Одноразовая привязка">
+            <TabItem Header="{DynamicResource TabOneTimeBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:OneTimeBindingView DataContext="{Binding OneTimeBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Односторонние привязки">
+            <TabItem Header="{DynamicResource TabOneWayBinding}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:OneWayBindingView DataContext="{Binding OneWayBindingVM}"/>
                 </Border>
             </TabItem>
 
-            <TabItem Header="Триггеры">
+            <TabItem Header="{DynamicResource TabTriggers}">
                 <Border Style="{StaticResource ContentBorderStyle}">
                     <views:TriggersView DataContext="{Binding TriggersVM}"/>
                 </Border>

@@ -53,7 +53,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
         <StackPanel Margin="5">
-            <TextBlock Text="Двухсторонняя привязка (TwoWay)" 
+            <TextBlock Text="{DynamicResource TwoWayBindingTitle}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource SuccessBrush}"/>
 
@@ -66,18 +66,18 @@
                 <!-- Пример с TextBox -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Пример с TextBox (TwoWay)" 
+                        <TextBlock Text="{DynamicResource TextBoxExample}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource AccentBrush}"/>
 
-                        <TextBlock Text="Введите текст:" 
+                        <TextBlock Text="{DynamicResource EnterText}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Текст из ViewModel:" 
+                        <TextBlock Text="{DynamicResource TextFromViewModel}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox Text="{Binding InputText, Mode=OneWay}" 
@@ -91,15 +91,15 @@
                                 CornerRadius="5"
                                 Margin="0,5">
                             <StackPanel>
-                                <TextBlock Text="Длина текста:" 
+                                <TextBlock Text="{DynamicResource TextLength}" 
                                           Foreground="{StaticResource TextBrush}"/>
-                                <TextBlock Text="{Binding InputText.Length}" 
+                                <TextBlock Text="{Binding TextLength}" 
                                           Style="{StaticResource ValueDisplayStyle}"
                                           HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Border>
 
-                        <TextBlock Text="Изменения синхронизируются в обоих направлениях" 
+                        <TextBlock Text="{DynamicResource AutoSync}" 
                                    Style="{StaticResource DescriptionStyle}"
                                    Margin="0,10,0,0"/>
                     </StackPanel>
@@ -108,11 +108,11 @@
                 <!-- Пример с CheckBox -->
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Пример с CheckBox (TwoWay)" 
+                        <TextBlock Text="{DynamicResource CheckBoxExample}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource WarningBrush}"/>
 
-                        <CheckBox Content="Активно" 
+                        <CheckBox Content="{DynamicResource Active}" 
                                   IsChecked="{Binding IsChecked, Mode=TwoWay}" 
                                   Margin="0,10" 
                                   FontSize="14"
@@ -123,7 +123,7 @@
                                 Margin="0,10"
                                 CornerRadius="5">
                             <StackPanel>
-                                <TextBlock Text="Состояние в ViewModel:" 
+                                <TextBlock Text="{DynamicResource StateInViewModel}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource TextBrush}"/>
                                 <TextBlock Text="{Binding IsChecked}" 
@@ -134,7 +134,7 @@
                             </StackPanel>
                         </Border>
 
-                        <TextBlock Text="При изменении CheckBox, значение в ViewModel обновляется и наоборот" 
+                        <TextBlock Text="{DynamicResource AutoSync}" 
                                    Style="{StaticResource DescriptionStyle}"/>
                     </StackPanel>
                 </Border>
@@ -149,26 +149,26 @@
                 <!-- Пример с полями Person -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Редактирование Person (TwoWay)" 
+                        <TextBlock Text="{DynamicResource EditPerson}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <TextBlock Text="Имя:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource FirstName}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Фамилия:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource LastName}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Возраст:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource Age}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.Age, Mode=TwoWay}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <CheckBox Content="Студент" 
+                        <CheckBox Content="{DynamicResource Student}" 
                                   IsChecked="{Binding Person.IsStudent, Mode=TwoWay}" 
                                   Margin="0,5"
                                   Foreground="{StaticResource TextBrush}"/>
@@ -179,7 +179,7 @@
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}" 
                         Background="{StaticResource PanelBrush}">
                     <StackPanel>
-                        <TextBlock Text="Текущие значения Person:" 
+                        <TextBlock Text="{DynamicResource CurrentPersonValues}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource AccentBrush}"/>
 
@@ -196,23 +196,23 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource FirstName}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Person.FirstName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Фамилия:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource LastName}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Person.LastName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Возраст:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource Age}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Person.Age}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Студент:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource StudentStatus}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Person.IsStudent}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Полное имя:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="{DynamicResource FullName}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Person.FullName}" Margin="10,5" Foreground="{StaticResource AccentLightBrush}" FontWeight="Bold"/>
                         </Grid>
 
-                        <TextBlock Text="* Обновляется в реальном времени" 
+                        <TextBlock Text="{DynamicResource RealTimeUpdate}" 
                                    Style="{StaticResource DescriptionStyle}"
                                    Margin="0,10,0,0"/>
                     </StackPanel>
@@ -232,7 +232,7 @@
                               FontWeight="Bold"
                               Foreground="{StaticResource SuccessBrush}"
                               Margin="0,0,0,10"/>
-                    <TextBlock Text="Двухсторонняя привязка обеспечивает синхронизацию данных в обоих направлениях:" 
+                    <TextBlock Text="{DynamicResource TwoWayDescription}" 
                               TextWrapping="Wrap" 
                               Foreground="{StaticResource TextBrush}"
                               Margin="0,0,0,10"/>
@@ -244,7 +244,7 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="5">
-                            <TextBlock Text="⬇️ UI → ViewModel" 
+                            <TextBlock Text="{DynamicResource UIToViewModel}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
                             <TextBlock Text="• Изменение в текстовом поле" 
@@ -258,7 +258,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Margin="5">
-                            <TextBlock Text="⬆️ ViewModel → UI" 
+                            <TextBlock Text="{DynamicResource ViewModelToUI}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
                             <TextBlock Text="• Обновление данных в коде" 
@@ -279,26 +279,26 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="✅ Преимущества:" 
+                            <TextBlock Text="{DynamicResource Advantages}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
-                            <TextBlock Text="• Автоматическая синхронизация" 
+                            <TextBlock Text="{DynamicResource AutoSync}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Не нужно писать код обновления" 
+                            <TextBlock Text="{DynamicResource NoCodeNeeded}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Данные всегда актуальны" 
+                            <TextBlock Text="{DynamicResource DataAlwaysActual}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
-                            <TextBlock Text="⚠️ Особенности:" 
+                            <TextBlock Text="{DynamicResource Features}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
-                            <TextBlock Text="• UpdateSourceTrigger влияет на момент обновления" 
+                            <TextBlock Text="{DynamicResource UpdateSourceTrigger}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Можно отключить для оптимизации" 
+                            <TextBlock Text="{DynamicResource CanDisable}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Требует INotifyPropertyChanged" 
+                            <TextBlock Text="{DynamicResource RequiresINPC}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                     </Grid>

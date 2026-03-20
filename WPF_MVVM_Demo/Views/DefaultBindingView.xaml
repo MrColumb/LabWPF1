@@ -47,7 +47,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
         <StackPanel Margin="5">
-            <TextBlock Text="Привязка по умолчанию (Default)" 
+            <TextBlock Text="{DynamicResource DefaultBindingTitle}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource AccentBrush}"/>
 
@@ -57,14 +57,14 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Привязка к элементам интерфейса -->
+                <!-- Прямая привязка к элементам интерфейса -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Прямая привязка к элементам интерфейса" 
+                        <TextBlock Text="{DynamicResource DirectBindingToUI}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource WarningBrush}"/>
 
-                        <TextBlock Text="Текстовое поле:" 
+                        <TextBlock Text="{DynamicResource TextBoxLabel}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox x:Name="DirectTextBox" 
@@ -72,7 +72,7 @@
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Текст из TextBox:" 
+                        <TextBlock Text="{DynamicResource TextFromTextBox}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox Text="{Binding Text, ElementName=DirectTextBox}" 
@@ -81,7 +81,7 @@
                                  Opacity="0.8"
                                  Margin="0,0,0,10"/>
 
-                        <TextBlock Text="При изменении текста в верхнем поле, нижнее обновляется автоматически" 
+                        <TextBlock Text="{DynamicResource DirectBindingDescription}" 
                                    Style="{StaticResource DescriptionStyle}"/>
                     </StackPanel>
                 </Border>
@@ -89,31 +89,31 @@
                 <!-- Привязка через ViewModel -->
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Привязка через ViewModel" 
+                        <TextBlock Text="{DynamicResource BindingViaViewModel}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <TextBlock Text="Имя:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource FirstName}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.FirstName}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Фамилия:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource LastName}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.LastName}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Возраст:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource Age}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.Age}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Email:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{DynamicResource Email}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.Email}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <CheckBox Content="Студент" 
+                        <CheckBox Content="{DynamicResource Student}" 
                                   IsChecked="{Binding Person.IsStudent}" 
                                   Margin="0,5"
                                   Foreground="{StaticResource TextBrush}"/>
@@ -123,13 +123,13 @@
                                 Margin="0,10"
                                 CornerRadius="5">
                             <StackPanel>
-                                <TextBlock Text="Полное имя:" 
+                                <TextBlock Text="{DynamicResource FullName}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource SuccessBrush}"/>
                                 <TextBlock Text="{Binding Person.FullName}" 
                                           FontSize="16"
                                           Foreground="{StaticResource AccentLightBrush}"/>
-                                <TextBlock Text="* Обновляется автоматически при изменении имени или фамилии" 
+                                <TextBlock Text="{DynamicResource AutoUpdateDescription}" 
                                           Style="{StaticResource DescriptionStyle}"
                                           Margin="0,5,0,0"/>
                             </StackPanel>
@@ -151,7 +151,7 @@
                               FontWeight="Bold"
                               Foreground="{StaticResource AccentBrush}"
                               Margin="0,0,0,10"/>
-                    <TextBlock Text="Привязка по умолчанию (Default) автоматически выбирает режим в зависимости от ситуации:" 
+                    <TextBlock Text="{DynamicResource DefaultBindingDescription}" 
                               TextWrapping="Wrap" 
                               Foreground="{StaticResource TextBrush}"
                               Margin="0,0,0,10"/>
@@ -161,25 +161,25 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Margin="5">
-                            <TextBlock Text="✅ Для свойств только для чтения:" 
+                            <TextBlock Text="{DynamicResource ReadOnlyProperties}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
                             <TextBlock Text="• TextBlock.Text" 
                                       Style="{StaticResource DescriptionStyle}"/>
                             <TextBlock Text="• Label.Content" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Использует OneWay" 
+                            <TextBlock Text="{DynamicResource UsesOneWay}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="5">
-                            <TextBlock Text="🔄 Для редактируемых свойств:" 
+                            <TextBlock Text="{DynamicResource EditableProperties}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
                             <TextBlock Text="• TextBox.Text" 
                                       Style="{StaticResource DescriptionStyle}"/>
                             <TextBlock Text="• CheckBox.IsChecked" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Использует TwoWay" 
+                            <TextBlock Text="{DynamicResource UsesTwoWay}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                     </Grid>
