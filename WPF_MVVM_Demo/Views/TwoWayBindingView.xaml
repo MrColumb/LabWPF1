@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WPF_MVVM_Demo.Views.TwoWayBindingView"
+<UserControl x:Class="WPF_MVVM_Demo.Views.TwoWayBindingView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -53,7 +53,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
         <StackPanel Margin="5">
-            <TextBlock Text="Двухсторонняя привязка (TwoWay)" 
+            <TextBlock Text="{Tr 'TwoWay.Title', DefaultText='TwoWay Binding'}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource SuccessBrush}"/>
 
@@ -66,18 +66,18 @@
                 <!-- Пример с TextBox -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Пример с TextBox (TwoWay)" 
+                        <TextBlock Text="{Tr 'TwoWay.TextBox.Title', DefaultText='TextBox example (TwoWay)'}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource AccentBrush}"/>
 
-                        <TextBlock Text="Введите текст:" 
+                        <TextBlock Text="{Tr 'TwoWay.TextBox.EnterText', DefaultText='Enter text:'}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Текст из ViewModel:" 
+                        <TextBlock Text="{Tr 'TwoWay.TextBox.FromVm', DefaultText='Text from ViewModel:'}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox Text="{Binding InputText, Mode=OneWay}" 
@@ -91,7 +91,7 @@
                                 CornerRadius="5"
                                 Margin="0,5">
                             <StackPanel>
-                                <TextBlock Text="Длина текста:" 
+                                <TextBlock Text="{Tr 'TwoWay.TextBox.Length', DefaultText='Text length:'}" 
                                           Foreground="{StaticResource TextBrush}"/>
                                 <TextBlock Text="{Binding InputText.Length}" 
                                           Style="{StaticResource ValueDisplayStyle}"
@@ -99,7 +99,7 @@
                             </StackPanel>
                         </Border>
 
-                        <TextBlock Text="Изменения синхронизируются в обоих направлениях" 
+                        <TextBlock Text="{Tr 'TwoWay.TextBox.SyncHint', DefaultText='Changes are synchronized in both directions'}" 
                                    Style="{StaticResource DescriptionStyle}"
                                    Margin="0,10,0,0"/>
                     </StackPanel>
@@ -108,11 +108,11 @@
                 <!-- Пример с CheckBox -->
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Пример с CheckBox (TwoWay)" 
+                        <TextBlock Text="{Tr 'TwoWay.CheckBox.Title', DefaultText='CheckBox example (TwoWay)'}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource WarningBrush}"/>
 
-                        <CheckBox Content="Активно" 
+                        <CheckBox Content="{Tr 'TwoWay.CheckBox.Active', DefaultText='Active'}" 
                                   IsChecked="{Binding IsChecked, Mode=TwoWay}" 
                                   Margin="0,10" 
                                   FontSize="14"
@@ -123,18 +123,18 @@
                                 Margin="0,10"
                                 CornerRadius="5">
                             <StackPanel>
-                                <TextBlock Text="Состояние в ViewModel:" 
+                                <TextBlock Text="{Tr 'TwoWay.CheckBox.State', DefaultText='State in ViewModel:'}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource TextBrush}"/>
                                 <TextBlock Text="{Binding IsChecked}" 
                                           Style="{StaticResource ValueDisplayStyle}"
                                           HorizontalAlignment="Center"/>
-                                <TextBlock Text="True - включено, False - выключено"
+                                <TextBlock Text="{Tr 'TwoWay.CheckBox.StateHint', DefaultText='True - enabled, False - disabled'}"
                                           Style="{StaticResource DescriptionStyle}"/>
                             </StackPanel>
                         </Border>
 
-                        <TextBlock Text="При изменении CheckBox, значение в ViewModel обновляется и наоборот" 
+                        <TextBlock Text="{Tr 'TwoWay.CheckBox.SyncHint', DefaultText='When CheckBox changes, ViewModel updates and vice versa'}" 
                                    Style="{StaticResource DescriptionStyle}"/>
                     </StackPanel>
                 </Border>
@@ -149,26 +149,26 @@
                 <!-- Пример с полями Person -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Редактирование Person (TwoWay)" 
+                        <TextBlock Text="{Tr 'TwoWay.PersonEdit.Title', DefaultText='Edit Person (TwoWay)'}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <TextBlock Text="Имя:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'TwoWay.PersonEdit.FirstName', DefaultText='First name:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Фамилия:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'TwoWay.PersonEdit.LastName', DefaultText='Last name:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Возраст:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'TwoWay.PersonEdit.Age', DefaultText='Age:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.Age, Mode=TwoWay}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <CheckBox Content="Студент" 
+                        <CheckBox Content="{Tr 'TwoWay.PersonEdit.Student', DefaultText='Student'}" 
                                   IsChecked="{Binding Person.IsStudent, Mode=TwoWay}" 
                                   Margin="0,5"
                                   Foreground="{StaticResource TextBrush}"/>
@@ -179,7 +179,7 @@
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}" 
                         Background="{StaticResource PanelBrush}">
                     <StackPanel>
-                        <TextBlock Text="Текущие значения Person:" 
+                        <TextBlock Text="{Tr 'TwoWay.PersonValues.Title', DefaultText='Current Person values:'}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource AccentBrush}"/>
 
@@ -196,23 +196,23 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Tr 'TwoWay.PersonValues.FirstName', DefaultText='First name:'}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Person.FirstName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Фамилия:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Tr 'TwoWay.PersonValues.LastName', DefaultText='Last name:'}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Person.LastName}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Возраст:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="{Tr 'TwoWay.PersonValues.Age', DefaultText='Age:'}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Person.Age}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Студент:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="{Tr 'TwoWay.PersonValues.Student', DefaultText='Student:'}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Person.IsStudent}" Margin="10,5" Foreground="{StaticResource SuccessBrush}"/>
 
-                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Полное имя:" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="{Tr 'TwoWay.PersonValues.FullName', DefaultText='Full name:'}" FontWeight="Bold" Margin="0,5" Foreground="{StaticResource TextBrush}"/>
                             <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Person.FullName}" Margin="10,5" Foreground="{StaticResource AccentLightBrush}" FontWeight="Bold"/>
                         </Grid>
 
-                        <TextBlock Text="* Обновляется в реальном времени" 
+                        <TextBlock Text="{Tr 'TwoWay.PersonValues.Realtime', DefaultText='* Updates in real time'}" 
                                    Style="{StaticResource DescriptionStyle}"
                                    Margin="0,10,0,0"/>
                     </StackPanel>
@@ -227,12 +227,12 @@
                     BorderBrush="{StaticResource SuccessBrush}"
                     BorderThickness="2">
                 <StackPanel>
-                    <TextBlock Text="📖 Описание двухсторонней привязки (TwoWay)" 
+                    <TextBlock Text="{Tr 'TwoWay.Info.Title', DefaultText='TwoWay Binding Description'}" 
                               FontSize="16" 
                               FontWeight="Bold"
                               Foreground="{StaticResource SuccessBrush}"
                               Margin="0,0,0,10"/>
-                    <TextBlock Text="Двухсторонняя привязка обеспечивает синхронизацию данных в обоих направлениях:" 
+                    <TextBlock Text="{Tr 'TwoWay.Info.Description', DefaultText='TwoWay binding synchronizes data in both directions:'}" 
                               TextWrapping="Wrap" 
                               Foreground="{StaticResource TextBrush}"
                               Margin="0,0,0,10"/>
@@ -247,13 +247,13 @@
                             <TextBlock Text="⬇️ UI → ViewModel" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
-                            <TextBlock Text="• Изменение в текстовом поле" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.UiToVm.TextBox', DefaultText='• Text field changes'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Переключение CheckBox" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.UiToVm.CheckBox', DefaultText='• CheckBox toggles'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Выбор в ComboBox" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.UiToVm.ComboBox', DefaultText='• ComboBox selection'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Данные передаются в модель" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.UiToVm.Model', DefaultText='• Data is sent to the model'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
 
@@ -261,13 +261,13 @@
                             <TextBlock Text="⬆️ ViewModel → UI" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
-                            <TextBlock Text="• Обновление данных в коде" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.VmToUi.Code', DefaultText='• Data updates in code'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Загрузка новых значений" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.VmToUi.Load', DefaultText='• Loading new values'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Изменение состояния" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.VmToUi.State', DefaultText='• State changes'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Интерфейс обновляется" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.VmToUi.Ui', DefaultText='• UI updates'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                     </Grid>
@@ -279,26 +279,26 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="✅ Преимущества:" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Advantages.Title', DefaultText='Advantages:'}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
-                            <TextBlock Text="• Автоматическая синхронизация" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Advantages.Sync', DefaultText='• Automatic synchronization'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Не нужно писать код обновления" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Advantages.NoCode', DefaultText='• No manual update code needed'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Данные всегда актуальны" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Advantages.Fresh', DefaultText='• Data is always current'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1">
-                            <TextBlock Text="⚠️ Особенности:" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Notes.Title', DefaultText='Notes:'}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
-                            <TextBlock Text="• UpdateSourceTrigger влияет на момент обновления" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Notes.Trigger', DefaultText='• UpdateSourceTrigger controls update timing'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Можно отключить для оптимизации" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Notes.Optimize', DefaultText='• Can be adjusted for optimization'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Требует INotifyPropertyChanged" 
+                            <TextBlock Text="{Tr 'TwoWay.Info.Notes.Notify', DefaultText='• Requires INotifyPropertyChanged'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                     </Grid>

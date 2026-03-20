@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WPF_MVVM_Demo.Models;
 
@@ -19,15 +19,15 @@ namespace WPF_MVVM_Demo.ViewModels
         {
             Person = new Person
             {
-                FirstName = "Иван",
-                LastName = "Иванов",
+                FirstName = "John",
+                LastName = "Smith",
                 Age = 25,
                 Email = "ivan@example.com",
                 IsStudent = false
             };
 
-            DirectText = "Текст из интерфейса";
-            VmText = "Текст из ViewModel";
+            DirectText = "Text from UI";
+            VmText = "Text from ViewModel";
         }
     }
 }

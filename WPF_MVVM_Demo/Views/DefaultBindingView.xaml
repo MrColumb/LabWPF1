@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WPF_MVVM_Demo.Views.DefaultBindingView"
+<UserControl x:Class="WPF_MVVM_Demo.Views.DefaultBindingView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -47,7 +47,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Auto"
                   Background="Transparent">
         <StackPanel Margin="5">
-            <TextBlock Text="Привязка по умолчанию (Default)" 
+            <TextBlock Text="{Tr 'DefaultBinding.Title', DefaultText='Default Binding'}" 
                        Style="{StaticResource SectionHeaderStyle}"
                        Foreground="{StaticResource AccentBrush}"/>
 
@@ -60,19 +60,19 @@
                 <!-- Привязка к элементам интерфейса -->
                 <Border Grid.Column="0" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Прямая привязка к элементам интерфейса" 
+                        <TextBlock Text="{Tr 'DefaultBinding.Direct.Title', DefaultText='Direct binding to UI elements'}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource WarningBrush}"/>
 
-                        <TextBlock Text="Текстовое поле:" 
+                        <TextBlock Text="{Tr 'DefaultBinding.Direct.TextBoxLabel', DefaultText='Text field:'}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox x:Name="DirectTextBox" 
-                                 Text="Введите текст" 
+                                 Text="{Binding DirectText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Текст из TextBox:" 
+                        <TextBlock Text="{Tr 'DefaultBinding.Direct.BoundTextLabel', DefaultText='Text from TextBox:'}" 
                                    Foreground="{StaticResource TextBrush}" 
                                    Margin="0,5"/>
                         <TextBox Text="{Binding Text, ElementName=DirectTextBox}" 
@@ -81,7 +81,7 @@
                                  Opacity="0.8"
                                  Margin="0,0,0,10"/>
 
-                        <TextBlock Text="При изменении текста в верхнем поле, нижнее обновляется автоматически" 
+                        <TextBlock Text="{Tr 'DefaultBinding.Direct.Hint', DefaultText='When you change text in the top field, the bottom one updates automatically'}" 
                                    Style="{StaticResource DescriptionStyle}"/>
                     </StackPanel>
                 </Border>
@@ -89,31 +89,31 @@
                 <!-- Привязка через ViewModel -->
                 <Border Grid.Column="1" Style="{StaticResource DemoInnerBorder}">
                     <StackPanel>
-                        <TextBlock Text="Привязка через ViewModel" 
+                        <TextBlock Text="{Tr 'DefaultBinding.Vm.Title', DefaultText='Binding through ViewModel'}" 
                                    Style="{StaticResource SubHeaderStyle}"
                                    Foreground="{StaticResource SuccessBrush}"/>
 
-                        <TextBlock Text="Имя:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'DefaultBinding.Vm.FirstName', DefaultText='First name:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.FirstName}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Фамилия:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'DefaultBinding.Vm.LastName', DefaultText='Last name:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.LastName}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Возраст:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'DefaultBinding.Vm.Age', DefaultText='Age:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.Age}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <TextBlock Text="Email:" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
+                        <TextBlock Text="{Tr 'DefaultBinding.Vm.Email', DefaultText='Email:'}" Foreground="{StaticResource TextBrush}" Margin="0,5"/>
                         <TextBox Text="{Binding Person.Email}" 
                                  Margin="0,0,0,10"
                                  Background="{StaticResource PanelBrush}"/>
 
-                        <CheckBox Content="Студент" 
+                        <CheckBox Content="{Tr 'DefaultBinding.Vm.Student', DefaultText='Student'}" 
                                   IsChecked="{Binding Person.IsStudent}" 
                                   Margin="0,5"
                                   Foreground="{StaticResource TextBrush}"/>
@@ -123,13 +123,13 @@
                                 Margin="0,10"
                                 CornerRadius="5">
                             <StackPanel>
-                                <TextBlock Text="Полное имя:" 
+                                <TextBlock Text="{Tr 'DefaultBinding.Vm.FullName', DefaultText='Full name:'}" 
                                           FontWeight="Bold"
                                           Foreground="{StaticResource SuccessBrush}"/>
                                 <TextBlock Text="{Binding Person.FullName}" 
                                           FontSize="16"
                                           Foreground="{StaticResource AccentLightBrush}"/>
-                                <TextBlock Text="* Обновляется автоматически при изменении имени или фамилии" 
+                                <TextBlock Text="{Tr 'DefaultBinding.Vm.FullNameHint', DefaultText='* Updates automatically when first or last name changes'}" 
                                           Style="{StaticResource DescriptionStyle}"
                                           Margin="0,5,0,0"/>
                             </StackPanel>
@@ -146,12 +146,12 @@
                     BorderBrush="{StaticResource AccentBrush}"
                     BorderThickness="2">
                 <StackPanel>
-                    <TextBlock Text="📖 Описание привязки по умолчанию (Default)" 
+                    <TextBlock Text="{Tr 'DefaultBinding.Info.Title', DefaultText='Default Binding Description'}" 
                               FontSize="16" 
                               FontWeight="Bold"
                               Foreground="{StaticResource AccentBrush}"
                               Margin="0,0,0,10"/>
-                    <TextBlock Text="Привязка по умолчанию (Default) автоматически выбирает режим в зависимости от ситуации:" 
+                    <TextBlock Text="{Tr 'DefaultBinding.Info.Description', DefaultText='Default binding automatically selects mode depending on context:'}" 
                               TextWrapping="Wrap" 
                               Foreground="{StaticResource TextBrush}"
                               Margin="0,0,0,10"/>
@@ -161,25 +161,25 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Margin="5">
-                            <TextBlock Text="✅ Для свойств только для чтения:" 
+                            <TextBlock Text="{Tr 'DefaultBinding.Info.ReadOnly.Title', DefaultText='For read-only properties:'}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource SuccessBrush}"/>
                             <TextBlock Text="• TextBlock.Text" 
                                       Style="{StaticResource DescriptionStyle}"/>
                             <TextBlock Text="• Label.Content" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Использует OneWay" 
+                            <TextBlock Text="{Tr 'DefaultBinding.Info.ReadOnly.Mode', DefaultText='• Uses OneWay'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="5">
-                            <TextBlock Text="🔄 Для редактируемых свойств:" 
+                            <TextBlock Text="{Tr 'DefaultBinding.Info.Editable.Title', DefaultText='For editable properties:'}" 
                                       FontWeight="Bold"
                                       Foreground="{StaticResource WarningBrush}"/>
                             <TextBlock Text="• TextBox.Text" 
                                       Style="{StaticResource DescriptionStyle}"/>
                             <TextBlock Text="• CheckBox.IsChecked" 
                                       Style="{StaticResource DescriptionStyle}"/>
-                            <TextBlock Text="• Использует TwoWay" 
+                            <TextBlock Text="{Tr 'DefaultBinding.Info.Editable.Mode', DefaultText='• Uses TwoWay'}" 
                                       Style="{StaticResource DescriptionStyle}"/>
                         </StackPanel>
                     </Grid>

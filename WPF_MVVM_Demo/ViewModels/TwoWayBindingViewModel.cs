@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WPF_MVVM_Demo.Models;
 
@@ -22,14 +22,14 @@ namespace WPF_MVVM_Demo.ViewModels
         {
             Person = new Person
             {
-                FirstName = "Петр",
-                LastName = "Петров",
+                FirstName = "Peter",
+                LastName = "Petrov",
                 Age = 30,
                 Email = "petr@example.com",
                 IsStudent = false
             };
 
-            InputText = "Начальный текст";
+            InputText = "Initial text";
             IsChecked = true;
         }
 

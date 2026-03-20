@@ -1,12 +1,19 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CodingSeb.Localization;
+using System.Collections.ObjectModel;
 
 namespace WPF_MVVM_Demo.ViewModels
 {
-    public partial class MainViewModel : ObservableObject  // Наследуемся от ObservableObject
+    public partial class MainViewModel : ObservableObject
     {
-        [ObservableProperty]  // Атрибут для авто-генерации свойства
+        [ObservableProperty]
         private object _selectedViewModel;
+
+        [ObservableProperty]
+        private string _currentLanguage = "en";
+
+        public ObservableCollection<string> AvailableLanguages { get; } = new();
 
         public DefaultBindingViewModel DefaultBindingVM { get; }
         public TwoWayBindingViewModel TwoWayBindingVM { get; }
@@ -22,10 +29,24 @@ namespace WPF_MVVM_Demo.ViewModels
             OneWayBindingVM = new OneWayBindingViewModel();
             TriggersVM = new TriggersViewModel();
 
+            foreach (var language in Loc.Instance.AvailableLanguages)
+            {
+                AvailableLanguages.Add(language);
+            }
+
+            CurrentLanguage = Loc.Instance.CurrentLanguage;
             SelectedViewModel = DefaultBindingVM;
         }
 
-        [RelayCommand]  // Автоматически создает команду SelectTabCommand
+        partial void OnCurrentLanguageChanged(string value)
+        {
+            if (!string.IsNullOrWhiteSpace(value) && Loc.Instance.CurrentLanguage != value)
+            {
+                Loc.Instance.CurrentLanguage = value;
+            }
+        }
+
+        [RelayCommand]
         private void SelectTab(object viewModel)
         {
             SelectedViewModel = viewModel;

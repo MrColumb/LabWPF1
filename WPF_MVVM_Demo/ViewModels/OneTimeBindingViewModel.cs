@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using WPF_MVVM_Demo.Models;
@@ -20,15 +20,15 @@ namespace WPF_MVVM_Demo.ViewModels
         {
             Person = new Person
             {
-                FirstName = "Сергей",
-                LastName = "Сергеев",
+                FirstName = "Sergey",
+                LastName = "Sergeev",
                 Age = 35,
                 Email = "sergey@example.com",
                 IsStudent = false
             };
 
             CurrentTime = DateTime.Now;
-            StaticText = "Этот текст не изменится при обновлении";
+            StaticText = "This text does not change after updates";
         }
 
         [RelayCommand]

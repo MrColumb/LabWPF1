@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using WPF_MVVM_Demo.Models;
 
@@ -19,14 +19,14 @@ namespace WPF_MVVM_Demo.ViewModels
         {
             Person = new Person
             {
-                FirstName = "Анна",
-                LastName = "Смирнова",
+                FirstName = "Anna",
+                LastName = "Smirnova",
                 Age = 28,
                 Email = "anna@example.com",
                 IsStudent = true
             };
 
-            ReadOnlyText = "Этот текст только для чтения";
+            ReadOnlyText = "This text is read-only";
             Counter = 0;
         }
 
@@ -48,13 +48,13 @@ namespace WPF_MVVM_Demo.ViewModels
             switch (parameter)
             {
                 case "name":
-                    Person.FirstName = "Новое имя";
+                    Person.FirstName = "New Name";
                     break;
                 case "age":
                     Person.Age++;
                     break;
                 default:
-                    Person.FirstName = "Обновленное имя";
+                    Person.FirstName = "Updated Name";
                     Person.Age++;
                     break;
             }
