@@ -112,10 +112,10 @@
                         </Border>
 
                         <Button Content="🔄 Обновить время в ViewModel" 
-                                Command="{Binding UpdateTimeCommand}"
+                                Style="{StaticResource OneTimeButtonStyle}"
+                                Click="UpdateTimeButton_Click" 
                                 Margin="0,10" 
-                                Padding="15,8"
-                                Background="{StaticResource WarningBrush}"/>
+                                Padding="15,8"/>
 
                         <Border Background="{StaticResource PanelBrush}" 
                                 Padding="10" 
@@ -273,10 +273,9 @@
                                  Foreground="{StaticResource TextBrush}"/>
 
                         <Button Content="🔄 Изменить имя в Person" 
-                                Command="{Binding UpdatePersonNameCommand}"
-                                CommandParameter="Новое имя"
                                 Style="{StaticResource OneTimeButtonStyle}"
                                 Background="{StaticResource SuccessBrush}"
+                                Click="ChangeNameButton_Click" 
                                 Margin="0,5" 
                                 Padding="15,8"/>
 

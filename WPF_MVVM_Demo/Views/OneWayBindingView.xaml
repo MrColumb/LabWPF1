@@ -95,9 +95,9 @@
                         </Border>
 
                         <Button Content="➕ Увеличить счетчик" 
-                                Command="{Binding IncrementCounterCommand}"
                                 Style="{StaticResource OneWayButtonStyle}"
                                 Background="{StaticResource SuccessBrush}"
+                                Click="IncrementButton_Click" 
                                 Margin="0,5" 
                                 Padding="15,8"/>
 
@@ -243,17 +243,16 @@
                                    Foreground="{StaticResource WarningBrush}"/>
 
                         <Button Content="🔄 Изменить имя на 'Новое имя'" 
-                                Command="{Binding UpdatePersonCommand}"
                                 Style="{StaticResource OneWayButtonStyle}"
                                 Background="{StaticResource WarningBrush}"
+                                Click="ChangeFirstNameButton_Click" 
                                 Margin="0,5" 
                                 Padding="15,8"/>
 
                         <Button Content="⬆️ Увеличить возраст" 
-                                Command="{Binding UpdatePersonCommand}"
-                                CommandParameter="age"
                                 Style="{StaticResource OneWayButtonStyle}"
                                 Background="{StaticResource DangerBrush}"
+                                Click="IncreaseAgeButton_Click" 
                                 Margin="0,5" 
                                 Padding="15,8"/>
 

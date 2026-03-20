@@ -10,5 +10,31 @@ namespace WPF_MVVM_Demo.Views
         {
             InitializeComponent();
         }
+
+        private void IncrementButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is OneWayBindingViewModel viewModel)
+            {
+                viewModel.IncrementCounter();
+            }
+        }
+
+        private void ChangeFirstNameButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is OneWayBindingViewModel viewModel)
+            {
+                viewModel.Person.FirstName = "Новое имя";
+                viewModel.OnPropertyChanged(nameof(viewModel.Person));
+            }
+        }
+
+        private void IncreaseAgeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is OneWayBindingViewModel viewModel)
+            {
+                viewModel.Person.Age++;
+                viewModel.OnPropertyChanged(nameof(viewModel.Person));
+            }
+        }
     }
 }
